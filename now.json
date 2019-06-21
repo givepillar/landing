@@ -1,6 +1,7 @@
 {
   "version": 2,
-  "name": "my-nextjs-app",
+  "name": "Pillar",
+  "alias": "pillar.gives",
   "builds": [
     {
       "src": "next.config.js",
