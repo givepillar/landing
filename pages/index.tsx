@@ -40,16 +40,26 @@ const Hero = () => (
           Pillar is an all new way to support the causes that matter to you.
         </p>
 
-        <div className="rounded overflow-hidden my-12 max-w-xl flex shadow-float">
+        <form
+          action="https://gives.us20.list-manage.com/subscribe/post?u=883f0f3764fd0eae45407ac87&amp;id=3f09e86dbe"
+          method="post"
+          target="_blank"
+          className="rounded overflow-hidden my-12 max-w-xl flex shadow-float"
+          noValidate
+        >
           <input
             type="text"
             placeholder="Your email"
+            name="EMAIL"
             className="flex-1 px-4 text-lg email-input"
           />
-          <button className="bg-teal-200 text-teal-800 font-bold px-8 py-3 text-lg">
+          <button
+            type="submit"
+            className="bg-teal-200 text-teal-800 font-bold px-8 py-3 text-lg"
+          >
             Get early access
           </button>
-        </div>
+        </form>
       </div>
     </div>
     <style jsx>
