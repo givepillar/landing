@@ -38,7 +38,7 @@ const Head: React.SFC<HeadProps> = props => (
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
-    <link rel="stylesheet" href="https://use.typekit.net/heu5qih.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/lmf4atf.css" />
 
     <link
       rel="stylesheet"

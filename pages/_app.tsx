@@ -21,7 +21,7 @@ class Base extends App {
     const { Component, pageProps } = this.props
 
     return (
-      <div className="flex-1 flex">
+      <div className="flex-1 flex font-sans text-gray-900">
         <Container>
           <Component {...pageProps} />
         </Container>
