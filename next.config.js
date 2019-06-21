@@ -9,6 +9,11 @@ module.exports = withTypescript(
         fs: 'empty',
       }
 
+      config.module.rules.push({
+        test: /\.svg$/,
+        use: ['@svgr/webpack']
+      })
+
       return config
     },
     target: 'serverless',

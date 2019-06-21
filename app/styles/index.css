@@ -4,21 +4,11 @@
   transition: all 0.15s ease-in-out;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1 {
   @apply font-display;
+  @apply text-xl;
 }
 
-h1 {
-  @apply text-xl;
-}
-h2 {
-  @apply text-xl;
-}
 h3 {
   @apply text-lg;
 }

@@ -16,5 +16,5 @@
     "noEmit": true,
     "jsx": "preserve"
   },
-  "exclude": ["out", ".next", "./next.config.js"]
+  "exclude": ["out", ".next", "./next.config.js"],
 }
