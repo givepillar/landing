@@ -1,0 +1,35 @@
+{
+  "name": "create-next-example-app",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "now-build": "next build"
+  },
+  "dependencies": {
+    "@types/classnames": "^2.2.7",
+    "@types/nprogress": "^0.2.0",
+    "@zeit/next-css": "^1.0.1",
+    "classnames": "^2.2.6",
+    "next": "^8.1.0",
+    "nprogress": "^0.2.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "styled-jsx-plugin-postcss": "^2.0.0",
+    "victory": "^32.2.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/custom-forms": "^0.1.4",
+    "@types/next": "^8.0.5",
+    "@types/react": "^16.8.19",
+    "@types/react-dom": "^16.8.4",
+    "@types/styled-jsx": "^2.2.8",
+    "@types/victory": "^31.0.18",
+    "@zeit/next-typescript": "^1.1.1",
+    "autoprefixer": "^9.5.1",
+    "cssnano": "^4.1.10",
+    "postcss-color-function": "^4.1.0",
+    "postcss-easy-import": "^3.0.0",
+    "tailwindcss": "^1.0.2"
+  }
+}
