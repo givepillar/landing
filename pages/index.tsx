@@ -2,8 +2,8 @@ import React from 'react'
 import Head from '../app/components/Head'
 import classnames from 'classnames'
 import Chart from '../app/img/chart.svg'
-import Vault from '../app/img/vault.svg'
-import Slider from 'react-slick'
+import Meditate from '../app/img/meditate.svg'
+import Love from '../app/img/love.svg'
 
 const funds = [
   {
@@ -14,7 +14,7 @@ const funds = [
       color: 'teal',
     },
     subscribers: '52k',
-    description: 'Seals, coral, kelp. All the good stuff.',
+    description: 'Protect the fragile ecosystems we all rely on.',
     image:
       'https://images.unsplash.com/photo-1496815179167-7bed3ba04811?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80',
   },
@@ -58,9 +58,9 @@ const Nav = () => (
       <ul className="flex">
         {/* <NavLink href="#">For Nonprofits</NavLink> */}
         {/* <NavLink href="#">Sign in</NavLink> */}
-        <NavLink href="#" bold>
+        {/* <NavLink href="#" bold>
           Get early access
-        </NavLink>
+        </NavLink> */}
       </ul>
     </div>
 
@@ -74,7 +74,7 @@ const Nav = () => (
 
 const Hero = () => (
   <div className="hero">
-    <div className="container px-6 sm:px-0 pb-16">
+    <div className="container px-6 pb-16">
       <Nav />
       <div className="max-w-4xl mx-auto mt-12">
         <h1 className="text-5xl leading-tight sm:text-6xl font-black">
@@ -88,32 +88,25 @@ const Hero = () => (
           action="https://gives.us20.list-manage.com/subscribe/post?u=883f0f3764fd0eae45407ac87&amp;id=3f09e86dbe"
           method="post"
           target="_blank"
-          className="block my-12"
+          className="my-12"
         >
-          <div className="hidden md:block rounded overflow-hidden my-12 max-w-xl flex shadow-float">
+          <div className="flex bg-white rounded overflow-hidden mb-4 max-w-xl shadow-float">
             <input
               type="email"
               required
               placeholder="Your email"
               name="EMAIL"
-              className="flex-1 px-4 text-lg email-input"
+              className="flex-1 py-4 md:py-0 px-4 text-lg email-input"
             />
             <button
               type="submit"
-              className=" bg-teal-200 text-teal-800 font-bold px-8 py-3 text-lg"
+              className="hidden md:block bg-teal-200 h-full text-teal-800 font-bold px-8 py-3 text-lg"
             >
               Get early access
             </button>
           </div>
 
           <div className="block md:hidden">
-            <input
-              type="email"
-              required
-              placeholder="Your email"
-              name="EMAIL"
-              className="block appearance-none w-full bg-white shadow-float rounded px-4 py-3 mb-4 text-lg email-input"
-            />
             <button
               type="submit"
               className="w-full rounded shadow-float bg-teal-200 text-teal-800 font-bold px-8 py-3 text-lg"
@@ -128,8 +121,8 @@ const Hero = () => (
       {`
         .hero {
           background-image: linear-gradient(
-              rgba(255, 255, 255, 0.6),
-              rgba(255, 255, 255, 1) 90%
+              rgba(255, 255, 255, 0.4) 50%,
+              rgba(255, 255, 255, 1)
             ),
             url('/static/miniblur2.gif');
           background-size: cover;
@@ -189,6 +182,7 @@ const FundList = ({ funds }) => (
   <div className="flex flex-col items-center">
     {funds.map((fund, i) => (
       <div
+        key={i}
         className={
           'card -my-2 w-full flex justify-center ' + (i == 1 ? 'active' : '')
         }
@@ -199,12 +193,14 @@ const FundList = ({ funds }) => (
     <style jsx>{`
       .card:not(.active) {
         transform: scale(0.9);
-        opacity: 0.8;
+        opacity: 0.7;
+        filter: grayscale(20%);
         z-index: 0;
       }
 
       .card.active {
         z-index: 1;
+        @apply shadow-xl;
       }
     `}</style>
   </div>
@@ -212,12 +208,12 @@ const FundList = ({ funds }) => (
 
 const SectionCopy = ({ theme, title, subtitle, children }) => (
   <div className="md:w-1/2 max-w-md mx-auto">
-    <div className={`mb-2 h-1 w-16 bg-${theme}-200`} />
-    <div className={`font-medium text-3xl text-${theme}-900`}>
+    <div className={`mb-3 h-1 w-16 bg-${theme}-200`} />
+    <div className={`font-normal text-3xl text-${theme}-900`}>
       <h2>{title}</h2>
       <h2 className="opacity-50">{subtitle}</h2>
     </div>
-    <p className={` text-xl text-gray-800 leading-normal mt-4`}>{children}</p>
+    <p className={` text-xl text-gray-800 leading-normal mt-5`}>{children}</p>
   </div>
 )
 
@@ -263,9 +259,9 @@ const Footer = ({ children }) => (
       <p className="font-display text-xl">Pillar</p>
 
       <ul className="flex text-purple-900">
-        <NavLink href="#">Terms</NavLink>
-        <NavLink href="#">Privacy</NavLink>
-        <NavLink bold href="#">
+        {/* <NavLink href="#">Terms</NavLink> */}
+        {/* <NavLink href="#">Privacy</NavLink> */}
+        <NavLink bold href="mailto:hey@pillar.gives?subject=Website Contact">
           Contact
         </NavLink>
       </ul>
@@ -289,7 +285,7 @@ const Home = () => (
     <Head />
     <Hero />
 
-    <div className="container px-6 overflow-hidden">
+    <div className="container px-6 overflow-hidden mb-20">
       <Panel
         media={
           <SectionMedia>
@@ -302,10 +298,10 @@ const Home = () => (
             subtitle="We'll do the heavy lifting."
             theme="teal"
           >
-            You have causes on your mind. Let us help you translate them into
-            action. We have experts curate bundles of charities to represent the
-            causes that are on your mind. All you need to do is find what
-            resonates with you.
+            We have expertly curated bundles of charities to create maximum
+            impact, always up to date. Give once and know that every dollar is
+            making the most change. All you need to do is find what resonates
+            with you.
           </SectionCopy>
         }
       />
@@ -320,33 +316,56 @@ const Home = () => (
         }
         copy={
           <SectionCopy
-            title="See your impact."
+            title="All of your impact."
             subtitle="All in one place."
             theme="red"
           >
-            Instead of scattering your giving all across the web. See the
-            difference each dollar is making from one platform
+            Forget checkbooks, spreadsheets, and messy folders of receipts. See
+            the difference each dollar you give is making from one place, with
+            one tax receipt.
           </SectionCopy>
         }
       />
       <Panel
         media={
           <SectionMedia>
+            <div className="max-w-sm mx-auto">
+              <Love />
+            </div>
+          </SectionMedia>
+        }
+        copy={
+          <SectionCopy
+            title="Give a little."
+            subtitle="Change a lot."
+            theme="blue"
+          >
+            Anyone can be a giver. With a $1 minimum donation, give as much or
+            little as you can. Let us show you how the smallest amounts make a
+            real difference when we all combine our efforts.
+          </SectionCopy>
+        }
+      />
+      <Panel
+        flip
+        media={
+          <SectionMedia>
             <div className="max-w-xs mx-auto">
-              <Vault />
+              <Meditate />
             </div>
           </SectionMedia>
         }
         copy={
           <SectionCopy
             title="Charities you can trust."
-            subtitle="With security from the start."
+            subtitle="Without the spam."
             theme="purple"
           >
-            We carefully vet nonprofits 990 forms and refer to Charity
-            Navigator's ratings, the industry standard, to connect you with
-            organizations you can believe in. And best of all, we can safeguard
-            your information, so you will not be solicited every other day.
+            We carefully vet nonprofits' tax filings and industry standard
+            ratings, alongside our own meticulous research, to find the most
+            impactul and trustworthy organizations in every field. Best of all?
+            We can protect your info, so no more sifting through hundreds of
+            emails and letters asking for your money.
           </SectionCopy>
         }
       />
