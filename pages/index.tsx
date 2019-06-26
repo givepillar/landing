@@ -193,7 +193,7 @@ const FundList = ({ funds }) => (
     <style jsx>{`
       .card:not(.active) {
         transform: scale(0.9);
-        opacity: 0.7;
+        opacity: 0.8;
         filter: grayscale(20%);
         z-index: 0;
       }
