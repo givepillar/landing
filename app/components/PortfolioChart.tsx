@@ -1,22 +1,20 @@
 import React from 'react'
-import { VictoryPie, VictoryTheme } from 'victory'
-import { spawn } from 'child_process'
+import { VictoryPie } from 'victory'
+import { portfolio } from '../mock/data'
 
-const data = [
-  { x: 'Education', y: 20 },
-  { x: 'Environment', y: 50 },
-  { x: 'Reproductive\nRights', y: 30 },
-]
+const data = portfolio.map(item => ({ x: item.recipient.name, y: item.amount }))
 
 const PortfolioChart = () => (
   <VictoryPie
     data={data}
     innerRadius={150}
     labels={[]}
-    cornerRadius={4}
-    padAngle={5}
+    // cornerRadius={4}
+    // padAngle={5}
     padding={0}
-    colorScale={['#E53E3E', '#ED8936', '#ECC94B', '#68D391', '#4FD1C5']}
+    colorScale={portfolio.map(
+      item => item.recipient.primaryCategory.colors.medium
+    )}
   />
 )
 

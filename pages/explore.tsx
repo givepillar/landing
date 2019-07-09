@@ -10,14 +10,12 @@ const SubnavLink = ({ children, href }) => (
 )
 
 const Explore = () => (
-  <Layout title="Explore" padContent={false}>
-    <div className="bg-white border-b border-gray-200">
+  <Layout nav={true} title="Explore" padContent={false}>
+    {/* <div className="bg-white border-b border-gray-200">
       <div className="container">
         <SubnavLink href="#">Explore</SubnavLink>
       </div>
-    </div>
-
-    <h1>Explore</h1>
+    </div> */}
   </Layout>
 )
 

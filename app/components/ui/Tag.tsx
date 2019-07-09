@@ -1,27 +1,16 @@
 import React from 'react'
 
 interface TagProps {
-  dark?: boolean
+  bgColor?: string
+  textColor?: string
 }
 
-const Tag: React.FC<TagProps> = ({ children, dark = false }) => (
+const Tag: React.FC<TagProps> = ({ children, bgColor, textColor }) => (
   <div
-    className={
-      'tag inline-block text-xs text-gray-900 font-medium mb-1 px-2 mr-2 rounded-sm' +
-      (dark ? ' tag-dark' : '')
-    }>
+    className="tag inline-block text-xs text-gray-900 font-semibold mb-1 py-px px-3 mr-2 rounded-full"
+    style={{ backgroundColor: bgColor, color: textColor }}
+  >
     {children}
-
-    <style jsx>{`
-      .tag {
-        background: color(theme(colors.gray.200) l(+4%));
-      }
-
-      .tag.tag-dark {
-        background: rgba(0, 0, 0, 0.15);
-        @apply text-black;
-      }
-    `}</style>
   </div>
 )
 

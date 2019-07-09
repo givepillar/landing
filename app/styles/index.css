@@ -9,13 +9,13 @@ h1 {
   @apply text-xl;
 }
 
-h3 {
-  @apply text-lg;
-}
-
 @tailwind components;
 
 @tailwind utilities;
+
+.bg-gradient {
+  background: linear-gradient(120deg, #f78b4a 0%, #dc619e 100%);
+}
 
 html,
 body,
@@ -25,4 +25,14 @@ body,
   display: flex;
   flex: 1;
   justify-content: center;
+  @apply font-sans text-gray-900;
+}
+
+#root {
+  display: block;
+  justify-content: start;
+  text-align: left;
+  flex: 1;
+  @apply font-sans text-gray-900;
+  @apply p-4;
 }

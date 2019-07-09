@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import classnames from 'classnames'
 import Logo from './Logo'
+import Container from './Container'
 
 interface LinkProps {
   to?: string
@@ -11,17 +12,18 @@ interface LinkProps {
 
 const NavLink: React.SFC<LinkProps> = ({
   children,
-  to = '/',
+  to = '/home',
   active = false,
   className = 'mx-3',
 }) => (
   <Link href={to}>
     <a
       className={classnames(
-        'no-underline text-gray-600 hover:text-gray-800',
+        'no-underline text-sm font-medium text-blue-800',
         { 'text-gray-800': active },
         className
-      )}>
+      )}
+    >
       {children}
     </a>
   </Link>
@@ -30,7 +32,8 @@ const NavLink: React.SFC<LinkProps> = ({
 const Row: React.SFC = ({ children }) => (
   <a
     href="#"
-    className="block no-underline text-gray-900 w-full border-b border-gray-200 px-4 py-2 hover:bg-gray-100">
+    className="block no-underline text-gray-900 w-full px-4 py-2 hover:bg-gray-50"
+  >
     {children}
   </a>
 )
@@ -41,8 +44,8 @@ const SearchBar: React.SFC = () => {
 
   return (
     <div className="relative w-full">
-      <label className="flex-1 flex items-baseline h-full py-3 cursor-text">
-        <i className="fas fa-search text-gray-400 mr-3" />
+      <label className="flex-1 bg-white flex items-baseline h-full py-3 cursor-text shadow-float px-4 rounded">
+        <i className="fas fa-search text-gray-300 mr-3" />
         <input
           type="text"
           value={query}
@@ -52,7 +55,7 @@ const SearchBar: React.SFC = () => {
         />
       </label>
       {query.length > 0 && (
-        <div className="absolute bg-white w-full mt-2 rounded-b shadow-2xl z-10">
+        <div className="absolute bg-white w-full mt-4 border border-gray-100 rounded shadow-2xl z-10">
           <Row>
             <p className="text-xs uppercase tracking-wide text-gray-500">
               Category
@@ -75,22 +78,52 @@ const SearchBar: React.SFC = () => {
 }
 
 const Nav: React.SFC = () => (
-  <nav className="flex justify-between items-baseline py-6">
-    <section>
-      <Logo />
-    </section>
-    <section className="mx-10 flex-1 hidden md:block">
-      <SearchBar />
-    </section>
-    <section className="-mx-3 mr-2">
-      <NavLink to="/">Home</NavLink>
-      <NavLink to="/explore">Explore</NavLink>
-      {/* <NavLink to="/tax">Tax Forms</NavLink> */}
-      <NavLink className="font-semibold ml-2 ">
-        Oscar
-        <i className="fas fa-chevron-down text-gray-400 text-xs ml-2" />
-      </NavLink>
-    </section>
+  <nav className="block bg-white w-full">
+    <div className="bar h-2 block  w-full" />
+    <Container>
+      <div className="flex flex-col items-center sm:flex-row justify-between sm:items-center py-8">
+        <section className="mb-4 sm:mb-0 ">
+          <Link href="/home">
+            <a>
+              <Logo />
+            </a>
+          </Link>
+        </section>
+        <section className="mx-24 flex-1 hidden md:block">
+          <SearchBar />
+        </section>
+        <section className="-mx-3 mr-2">
+          <NavLink to="/home">Home</NavLink>
+          <NavLink to="/explore">Explore</NavLink>
+          {/* <NavLink to="/tax">Tax Forms</NavLink> */}
+
+          <NavLink className="font-semibold ml-2 ">Oscar</NavLink>
+        </section>
+      </div>
+    </Container>
+
+    <style jsx>{`
+      .bar {
+        background: url('/static/navbg.svg');
+        @apply bg-cover;
+        background-position: center;
+      }
+      nav {
+         {
+          /* background: url('/static/navbg.svg'); */
+        }
+         {
+          /* background: radial-gradient(
+            100% 400% at 60% 10%,
+            RGBA(236, 49, 177, 1),
+            RGBA(235, 54, 210, 0) 40%
+          ),
+          linear-gradient(0.25turn, #e9341b, #ead024); */
+        }
+        @apply bg-cover;
+        background-position: top;
+      }
+    `}</style>
   </nav>
 )
 
