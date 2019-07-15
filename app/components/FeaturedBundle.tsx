@@ -10,9 +10,9 @@ interface FeaturedProps {
 }
 
 const FeaturedBundle: React.SFC<FeaturedProps> = ({ bundle }) => (
-  <Link href="#">
-    <a href="#" className="flex">
-      <div className="max-w-md bg h-full mt-1">
+  <Link href="/to/[slug]" as={`/to/${bundle.slug}`}>
+    <a href="#" className="flex flex-wrap">
+      <div className="max-w-md order-2 md:order-1 bg h-full mt-1">
         <div className="flex items-center">
           <p className="text-3xl font-black text-black mr-6">
             <Highlight color={bundle.primaryCategory.colors.light}>
@@ -36,9 +36,9 @@ const FeaturedBundle: React.SFC<FeaturedProps> = ({ bundle }) => (
           adipisicing elit. A, recusandae esse ipsum nisi officia ipsa delectus
           aut ipsam ad vel.
         </p>
-        <PrimaryButton>Do something</PrimaryButton>
+        <PrimaryButton>Learn more</PrimaryButton>
       </div>
-      <div className="image rounded bg-cover bg-center flex-1 ml-16 h-64" />
+      <div className="image rounded min-w-full flex-1 order-1 md:order-2 bg-cover bg-center flex-1 md:ml-16 h-64 md:min-w-0 my-6 md:my-0" />
 
       <style jsx>{`
         .image {

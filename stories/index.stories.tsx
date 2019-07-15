@@ -28,10 +28,10 @@ const bundle = {
   },
 }
 
-storiesOf('Elements|BundleCard', module)
-  .add('default apperance', () => <BundleCard bundle={bundle} />)
-  .add('large appearance', () => <BundleCard bundle={bundle} large />)
-  .add('small appearance', () => <BundleCard bundle={bundle} small />)
+// storiesOf('Elements|BundleCard', module)
+//   .add('default apperance', () => <BundleCard bundle={bundle} />)
+//   .add('large appearance', () => <BundleCard bundle={bundle} large />)
+//   .add('small appearance', () => <BundleCard bundle={bundle} small />)
 
 storiesOf('UI|Button', module)
   .add('primary', () => (

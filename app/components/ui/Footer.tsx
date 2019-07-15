@@ -1,10 +1,16 @@
 import React from 'react'
 import { LogoMasked as Logo } from './Logo'
+import Link from 'next/link'
 
-const FooterLink: React.SFC = ({ children }) => (
-  <a href="#" className="no-underline text-blue-800 font-medium text-sm ml-4">
-    {children}
-  </a>
+interface LinkProps {
+  href?: string
+}
+const FooterLink: React.SFC<LinkProps> = ({ children, href = '/' }) => (
+  <Link href={href}>
+    <a className="no-underline text-blue-800 font-medium text-sm ml-4">
+      {children}
+    </a>
+  </Link>
 )
 
 const Footer = () => (
@@ -15,8 +21,8 @@ const Footer = () => (
       </div>
       <nav>
         <FooterLink>About</FooterLink>
-        <FooterLink>Terms</FooterLink>
-        <FooterLink>Privacy</FooterLink>
+        <FooterLink href="/terms">Terms</FooterLink>
+        <FooterLink href="/privacy">Privacy</FooterLink>
         <FooterLink>Support</FooterLink>
       </nav>
     </div>

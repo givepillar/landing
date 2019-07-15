@@ -57,37 +57,53 @@ const PortfolioSection = () => (
 )
 
 const Home = () => (
-  <Layout nav={true} title="Home" padContent={false}>
-    <Container className="pt-16 lg:flex">
-      <section className="w-full lg:w-3/4 lg:pr-24">
-        <div className="mb-10">
-          <SectionTitle>In the Spotlight</SectionTitle>
-          <FeaturedBundle bundle={bundles.choice} />
-        </div>
-        <div className="py-12">
-          <SuggestionCarousel />
-        </div>
-      </section>
-      <div className="w-fulll lg:w-1/4">
-        <SectionTitle className="mb-2">Portfolio</SectionTitle>
-        <p className="mb-6 text-sm font-semibold text-gray-500">
-          Will charge on August 1, 2019
-        </p>
-        <PortfolioSection />
+  <Layout nav={true} title="Pillar" padContent={false}>
+    <Container className="">
+      <div className="flex flex-wrap mt-10">
+        <section className="w-full lg:w-3/4 lg:pr-16">
+          <div className="item">
+            <SectionTitle>In the Spotlight</SectionTitle>
+            <FeaturedBundle bundle={bundles.choice} />
+          </div>
+          <div className="block lg:hidden item">
+            <SectionTitle className="mb-2">Portfolio</SectionTitle>
+            <p className="mb-6 text-sm font-semibold text-gray-500">
+              Will charge on August 1, 2019
+            </p>
+            <PortfolioSection />
+          </div>
+          <div className="item">
+            <SuggestionCarousel />
+          </div>
+        </section>
 
-        <section className="py-12 flex flex-col">
-          <SectionTitle className="mb-2">Activity</SectionTitle>
-          <p className="mb-6 text-gray-600">
-            All of your donations giving activity will show up here.
-          </p>
-          <div className="max-w-sm">
-            <Link href="/explore">
-              <SecondaryButton>Explore Causes and Bundles</SecondaryButton>
-            </Link>
+        <section className="w-full lg:w-1/4">
+          <div className="hidden lg:block item">
+            <SectionTitle className="mb-2">Portfolio</SectionTitle>
+            <p className="mb-6 text-sm font-semibold text-gray-500">
+              Will charge on August 1, 2019
+            </p>
+            <PortfolioSection />
+          </div>
+          <div className="item flex flex-col">
+            <SectionTitle className="mb-2">Activity</SectionTitle>
+            <p className="mb-6 text-gray-600">
+              All of your donations giving activity will show up here.
+            </p>
+            <div className="max-w-sm">
+              <Link href="/explore">
+                <SecondaryButton>Explore Causes and Bundles</SecondaryButton>
+              </Link>
+            </div>
           </div>
         </section>
       </div>
     </Container>
+    <style jsx>{`
+      .item {
+        @apply mb-24;
+      }
+    `}</style>
   </Layout>
 )
 

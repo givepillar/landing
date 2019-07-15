@@ -35,7 +35,10 @@ module.exports = {
     },
     customForms: theme => ({
       default: {
-        'input, textarea, multiselect, select': {},
+        'input, textarea, multiselect, select': {
+          backgroundColor: custom.gray['50'],
+          border: 'none',
+        },
       },
     }),
     extend: {
@@ -48,7 +51,7 @@ module.exports = {
         grey: custom.gray,
       },
       boxShadow: {
-        float: '0 2px 14px 0 rgba(60,38,110,0.13)',
+        float: '0 4px 14px 0 rgba(60,38,110,0.13)',
       },
     },
   },

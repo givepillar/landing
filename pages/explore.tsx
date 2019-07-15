@@ -2,6 +2,8 @@ import React from 'react'
 import Layout from '../app/components/Layout'
 import Link from 'next/link'
 import classnames from 'classnames'
+import SuggestionCarousel from '../app/components/SuggestionCarousel'
+import Container from '../app/components/ui/Container'
 
 const SubnavLink = ({ children, href }) => (
   <Link href={href}>
@@ -11,11 +13,9 @@ const SubnavLink = ({ children, href }) => (
 
 const Explore = () => (
   <Layout nav={true} title="Explore" padContent={false}>
-    {/* <div className="bg-white border-b border-gray-200">
-      <div className="container">
-        <SubnavLink href="#">Explore</SubnavLink>
-      </div>
-    </div> */}
+    <Container>
+      <SuggestionCarousel />
+    </Container>
   </Layout>
 )
 

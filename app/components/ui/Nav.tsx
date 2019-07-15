@@ -79,10 +79,10 @@ const SearchBar: React.SFC = () => {
 
 const Nav: React.SFC = () => (
   <nav className="block bg-white w-full">
-    <div className="bar h-2 block  w-full" />
+    <div className="bar h-2 block w-full" />
     <Container>
       <div className="flex flex-col items-center sm:flex-row justify-between sm:items-center py-8">
-        <section className="mb-4 sm:mb-0 ">
+        <section className="mb-6 sm:mb-0 ">
           <Link href="/home">
             <a>
               <Logo />
@@ -97,7 +97,9 @@ const Nav: React.SFC = () => (
           <NavLink to="/explore">Explore</NavLink>
           {/* <NavLink to="/tax">Tax Forms</NavLink> */}
 
-          <NavLink className="font-semibold ml-2 ">Oscar</NavLink>
+          <NavLink className="font-semibold ml-2" to="/">
+            Oscar
+          </NavLink>
         </section>
       </div>
     </Container>

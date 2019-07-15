@@ -1,23 +1,29 @@
 import React from 'react'
 import classnames from 'classnames'
 import Spinner from './Spinner'
+import { StyleProps } from '../../types'
 
-interface ButtonProps {
+interface ButtonProps extends StyleProps {
   size?: string
   loading?: boolean
-  className?: string
   uppercase?: boolean
+  onClick?: () => void
+  type?: 'submit' | 'reset' | 'button'
 }
 
 const Button: React.SFC<ButtonProps> = ({
   children,
   className,
   loading,
+  onClick = () => null,
   size = 'md',
+  type = 'button',
   ...props
 }) => (
   <button
     {...props}
+    type={type}
+    onClick={onClick}
     className={classnames(
       className,
       {
@@ -42,7 +48,7 @@ export const PrimaryButton: React.SFC<ButtonProps> = ({
     {...props}
     className={classnames(
       className,
-      'button bg-gradient text-white tracking-wide rounded font-medium shadow-lg active:shadow'
+      'button bg-red-500 text-white tracking-wide rounded font-medium shadow-lg active:shadow'
     )}
   >
     {children}

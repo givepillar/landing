@@ -17,6 +17,19 @@ h1 {
   background: linear-gradient(120deg, #f78b4a 0%, #dc619e 100%);
 }
 
+.up-half {
+  transform: translateY(-50%);
+}
+
+.link {
+  background: linear-gradient(
+    0deg,
+    theme(colors.teal.100) 50%,
+    transparent 50%
+  );
+  @apply text-teal-900 font-medium;
+}
+
 html,
 body,
 #__next {

@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
 import { Bundle } from '../types'
-import Card from './ui/Card'
 import CategoryTag from './ui/CategoryTag'
 import Highlight from './ui/Highlight'
 
@@ -12,8 +11,8 @@ interface BundleCardProps {
 }
 
 const BundleCard: React.SFC<BundleCardProps> = ({ bundle, small, large }) => (
-  <Link href="#">
-    <a href="#" className="block">
+  <Link href="/to/[slug]" as={`/to/${bundle.slug}`}>
+    <a className="block">
       <div>
         {!small && (
           <div

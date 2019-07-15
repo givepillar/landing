@@ -4,6 +4,11 @@ import classnames from 'classnames'
 import Chart from '../app/img/chart.svg'
 import Meditate from '../app/img/meditate.svg'
 import Love from '../app/img/love.svg'
+import Logo from '../app/components/ui/Logo'
+import Highlight from '../app/components/ui/Highlight'
+import { Categories } from '../app/mock/data'
+import Link from 'next/link'
+import Footer from '../app/components/ui/Footer'
 
 const funds = [
   {
@@ -51,37 +56,33 @@ const NavLink = ({ children, href = '/', bold = false }) => (
 )
 
 const Nav = () => (
-  <nav className="py-3">
-    <div className="flex justify-between items-baseline">
-      <p className="logo font-display text-4xl">Pillar</p>
-
-      <ul className="flex">
-        {/* <NavLink href="#">For Nonprofits</NavLink> */}
-        {/* <NavLink href="#">Sign in</NavLink> */}
-        {/* <NavLink href="#" bold>
-          Get early access
-        </NavLink> */}
-      </ul>
+  <nav className="py-8">
+    <div className="flex justify-between items-center">
+      <div className="flex-1" />
+      <Logo />
+      <div className="flex-1 text-right">
+        <Link href="/login">
+          <a className="text-black font-semibold p-6">
+            Login <i className="fas fa-arrow-right text-gray-400 ml-1" />
+          </a>
+        </Link>
+      </div>
     </div>
-
-    <style jsx>{`
-      .logo {
-        opacity: 0.9;
-      }
-    `}</style>
   </nav>
 )
 
 const Hero = () => (
-  <div className="hero">
+  <div className="">
     <div className="container px-6 pb-16">
       <Nav />
-      <div className="max-w-4xl mx-auto mt-12">
+      <div className="max-w-4xl text-center mx-auto mt-12">
         <h1 className="text-5xl leading-tight sm:text-6xl font-black">
-          Impact. Easy.
+          <Highlight color={Categories.health.colors.light}>
+            Impact. Easy.
+          </Highlight>
         </h1>
-        <p className="font-light text-2xl sm:text-4xl leading-normal max-w-2xl antialiased">
-          Pillar is an all new way to support the causes that matter to you.
+        <p className="font-light text-2xl sm:text-4xl leading-normal max-w-2xl mt-12 mx-auto ">
+          Pillar is the new way to support the most pressing issues we face.
         </p>
 
         <form
@@ -90,7 +91,7 @@ const Hero = () => (
           target="_blank"
           className="my-12"
         >
-          <div className="flex bg-white rounded overflow-hidden mb-4 max-w-xl shadow-float">
+          <div className="flex bg-white rounded overflow-hidden mb-4 mx-auto max-w-xl shadow-float">
             <input
               type="email"
               required
@@ -120,12 +121,9 @@ const Hero = () => (
     <style jsx>
       {`
         .hero {
-          background-image: linear-gradient(
-              rgba(255, 255, 255, 0.4) 50%,
-              rgba(255, 255, 255, 1)
-            ),
-            url('/static/miniblur2.gif');
+          background-image: url('/static/navbg.svg');
           background-size: cover;
+          background-position: center;
           border: none;
           padding: 0;
         }
@@ -252,37 +250,39 @@ const OutreachPanel = () => (
   </div>
 )
 
-const Footer = ({ children }) => (
-  <footer className="footer py-16 z-0">
-    {children}
-    <div className="conatiner px-6 flex justify-between items-baseline">
-      <p className="font-display text-xl">Pillar</p>
+// const Footer = ({ children }) => (
+//   <footer className="footer py-16 z-0">
+//     {children}
+//     <div className="container mx-auto px-6 flex justify-between items-baseline">
+//       <p className="font-display text-xl">Pillar</p>
 
-      <ul className="flex text-purple-900">
-        {/* <NavLink href="#">Terms</NavLink> */}
-        {/* <NavLink href="#">Privacy</NavLink> */}
-        <NavLink bold href="mailto:hey@pillar.gives?subject=Website Contact">
-          Contact
-        </NavLink>
-      </ul>
-    </div>
-    <style jsx>{`
-      .footer {
-        background-image: linear-gradient(
-            rgba(255, 255, 255, 1),
-            rgba(255, 255, 255, 0.6)
-          ),
-          url('/static/miniblur2.gif');
-        background-size: cover;
-        border: none;
-      }
-    `}</style>
-  </footer>
-)
+//       <ul className="flex text-purple-900">
+//         {/* <NavLink href="#">Terms</NavLink> */}
+//         {/* <NavLink href="#">Privacy</NavLink> */}
+//         <NavLink bold href="mailto:hey@pillar.gives?subject=Website Contact">
+//           Contact
+//         </NavLink>
+//       </ul>
+//     </div>
+//     <style jsx>{`
+//       .footer {
+//          {
+//           /* background-image: linear-gradient(
+//             rgba(255, 255, 255, 1),
+//             rgba(255, 255, 255, 0.6)
+//           ),
+//           url('/static/miniblur2.gif');
+//         background-size: cover;
+//         border: none; */
+//         }
+//       }
+//     `}</style>
+//   </footer>
+// )
 
 const Home = () => (
   <div className="w-full">
-    <Head />
+    <Head title="Pillar" />
     <Hero />
 
     <div className="container px-6 overflow-hidden mb-20">
@@ -371,11 +371,10 @@ const Home = () => (
       />
     </div>
 
-    <Footer>
-      <div className="-mt-32 mb-32">
-        <OutreachPanel />
-      </div>
-    </Footer>
+    <OutreachPanel />
+    <div className="mb-24" />
+
+    <Footer />
   </div>
 )
 

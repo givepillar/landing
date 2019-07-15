@@ -1,4 +1,4 @@
-import ApolloClient, { InMemoryCache, HttpLink } from 'apollo-boost'
+import ApolloClient from 'apollo-boost'
 import fetch from 'isomorphic-unfetch'
 
 let apolloClient = null
@@ -13,7 +13,7 @@ function create(initialState) {
   })
 }
 
-export default function initApollo(initialState) {
+export default function initApollo(initialState = {}) {
   // Make sure to create a new client for every server-side request so that data
   // isn't shared between connections (which would be bad)
   if (typeof window === 'undefined') {

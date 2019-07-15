@@ -1,23 +1,26 @@
-import React from 'react'
-import App from 'next/app'
-import { AppProps, Container, DefaultAppIProps } from 'next/app'
+import App, { Container } from 'next/app'
 import Router from 'next/router'
+import NProgress from 'nprogress'
+import React from 'react'
+import { ApolloProvider } from 'react-apollo'
+import withApolloClient from '../app/lib/withApollo'
 import '../app/styles/index.css'
 import '../app/styles/nprogress.css'
-import NProgress from 'nprogress'
-import withApolloClient, { IApolloProps } from '../app/lib/withApollo'
-import { ApolloProvider } from 'react-apollo'
 
-class Base extends React.Component<IApolloProps & DefaultAppIProps & AppProps> {
+export interface ApolloProps {
+  apolloClient: any
+}
+
+class Base extends App<ApolloProps> {
   constructor(props) {
     super(props)
     NProgress.configure({
       showSpinner: false,
     })
 
-    Router.onRouteChangeStart = () => NProgress.start()
-    Router.onRouteChangeComplete = () => NProgress.done()
-    Router.onRouteChangeError = () => NProgress.done(true)
+    Router.events.on('routeChangeStart', NProgress.start)
+    Router.events.on('routeChangeComplete', NProgress.done)
+    Router.events.on('routeChangeError', () => NProgress.done(true))
   }
 
   render() {

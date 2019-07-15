@@ -17,16 +17,21 @@ export interface Category {
 }
 export interface Bundle {
   name: string
+  longTitle: string
   description: string
   imageUrl?: string
   primaryCategory: Category
+  slug: string
+  nonprofits?: Nonprofit[]
 }
 
 export interface Nonprofit {
   name: string
-  description: string
-  imageUrl: string
-  primaryCategory: Category
+  programs?: string
+  charityNavigator?: number
+  programExpense?: number
+  // imageUrl: string
+  // primaryCategory: Category
 }
 
 export interface StyleProps {
@@ -35,6 +40,6 @@ export interface StyleProps {
 }
 
 export interface PortfolioItem {
-  recipient: Bundle | Nonprofit
+  recipient: Bundle
   amount: number
 }

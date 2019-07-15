@@ -3,7 +3,7 @@ import InputLabel from './InputLabel'
 
 interface RadioOption {
   name: string
-  value: string
+  value: any
 }
 
 interface RadioItemProps {
