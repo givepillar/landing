@@ -46,7 +46,7 @@ const summary = () => (
               <a href="#milestones">Milestones and Goals</a>
             </li>
             <li>
-              <a href="#market">Appendix: Market Overview</a>
+              <a href="#market">Market Overview</a>
             </li>
           </ol>
         </div>
@@ -209,7 +209,7 @@ const summary = () => (
           <li>Continuing: Iterate with users to test main assumptions</li>
         </ul>
 
-        <h2 id="market">Appendix: Chartiy and Financial Tech Market</h2>
+        <h2 id="market">Chartiy and Financial Tech Market</h2>
         <p>
           The platform we are developing delivers the service directly to
           consumers. This model was chosen by analyzing companies that have
