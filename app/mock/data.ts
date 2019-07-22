@@ -29,38 +29,56 @@ export const Categories = {
 
 export const nonprofits = {
   edd: {
+    slug: 'edf',
     name: 'Environmental Defense Fund',
     programExpense: 79.1,
     charityNavigator: 98.48,
-    progarms: 'Climate and energy, oceans, ecosystems',
+    programs: 'Climate and energy, oceans, ecosystems',
+    imageUrl:
+      'https://images.unsplash.com/photo-1508791290064-c27cc1ef7a9a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1953&q=80',
   },
   conservancy: {
+    slug: 'nature-conservancy',
     name: 'The Nature Conservancy',
     programExpense: 71.2,
     charityNavigator: 84.35,
-    progarms:
+    programs:
       'Climate change, fire, fresh water, forests, invasive species, and marine ecosystems',
+    imageUrl:
+      'https://images.unsplash.com/photo-1544143564-b80b0bf401d0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
   },
   nrdc: {
+    slug: 'nrdc',
     name: 'Natural Resources Defense Council',
+    imageUrl:
+      'https://images.unsplash.com/photo-1472525827684-e2203602f702?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1945&q=80',
     programExpense: 83.6,
     programs:
       'Climate, land, wildlife, water, oceans, energy, food, sustainable communities',
     charityNavigator: 96.35,
   },
   rivers: {
+    slug: 'rivers',
     name: 'American Rivers',
+    imageUrl:
+      'https://images.unsplash.com/photo-1455577380025-4321f1e1dca7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
     programs: 'River restoration, federal river management, clean water supply',
     programExpense: 74.9,
     charityNavigator: 88.18,
   },
   trust: {
+    slug: 'trust-for-public-land',
     name: 'Trust for Public Land',
+    imageUrl:
+      'https://images.unsplash.com/photo-1537574957746-0b73f5b105cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1300&q=80',
     programExpense: 84,
     programs: 'Park Accesiblity',
   },
   sierra: {
+    slug: 'sierra-club',
     name: 'Sierra Club',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/2/21/Adams_The_Tetons_and_the_Snake_River.jpg',
     programExpense: 88.5,
     charityNavigator: 94.08,
     programs:

@@ -8,7 +8,7 @@ import Link from 'next/link'
 
 const login = () => (
   <Base>
-    <div className="flex w-full h-full items-start pt-12 justify-center">
+    <div className="flex w-full h-full bg-gray-50 items-start pt-12 justify-center">
       {/* <div className="w-1/2 flex-1 bg" /> */}
       <div className="p-12 flex flex-col items-center w-full">
         <Link href="/">
@@ -16,7 +16,7 @@ const login = () => (
             <Logo />
           </a>
         </Link>
-        <form className="max-w-sm mt-10 w-full block shadow-xl border border-gray-100 rounded-lg p-12">
+        <form className="max-w-sm mt-10 bg-white w-full block shadow-xl border-gray-100 rounded-lg p-12">
           <a
             href={
               'https://www.facebook.com/v3.3/dialog/oauth?' +
@@ -36,9 +36,9 @@ const login = () => (
           <div className="w-full text-center text-xs uppercase tracking-wide text-gray-500 font-bold my-6">
             <p>Or</p>
           </div>
-          <TextInput title="Email" type="email" className="mb-6" />
+          <TextInput title="Email" type="email" name="email" className="mb-6" />
           <div className="mb-12">
-            <TextInput title="Password" type="password" />
+            <TextInput title="Password" name="password" type="password" />
             <Link href="/login">
               <a className="link text-sm inline-block mt-2">
                 Forgot your password?

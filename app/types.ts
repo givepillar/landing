@@ -30,7 +30,9 @@ export interface Nonprofit {
   programs?: string
   charityNavigator?: number
   programExpense?: number
-  // imageUrl: string
+  slug: string
+  imageUrl?: string
+  logoUrl?: string
   // primaryCategory: Category
 }
 

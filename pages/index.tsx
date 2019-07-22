@@ -1,14 +1,14 @@
+import classnames from 'classnames'
+import Link from 'next/link'
 import React from 'react'
 import Head from '../app/components/Head'
-import classnames from 'classnames'
-import Chart from '../app/img/chart.svg'
-import Meditate from '../app/img/meditate.svg'
-import Love from '../app/img/love.svg'
-import Logo from '../app/components/ui/Logo'
-import Highlight from '../app/components/ui/Highlight'
-import { Categories } from '../app/mock/data'
-import Link from 'next/link'
 import Footer from '../app/components/ui/Footer'
+import Highlight from '../app/components/ui/Highlight'
+import Logo from '../app/components/ui/Logo'
+import Chart from '../app/img/chart.svg'
+import Love from '../app/img/love.svg'
+import Meditate from '../app/img/meditate.svg'
+import { Categories } from '../app/mock/data'
 
 const funds = [
   {

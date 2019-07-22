@@ -1,6 +1,7 @@
 import React from 'react'
-import { LogoMasked as Logo } from './Logo'
+import Logo from './Logo'
 import Link from 'next/link'
+import Container from './Container'
 
 interface LinkProps {
   href?: string
@@ -14,18 +15,37 @@ const FooterLink: React.SFC<LinkProps> = ({ children, href = '/' }) => (
 )
 
 const Footer = () => (
-  <footer className="bg-white py-8 bg-gray-50">
-    <div className="container px-4 text-gray-600 flex items-center justify-between">
-      <div className="w-24">
-        <Logo />
+  <footer className="bg-white bg-gray-50">
+    <Container>
+      <div className=" mx-auto border-t pt-8 pb-16 border-gray-100 text-gray-600 flex items-center justify-between">
+        <div className="max-w-xs">
+          <div className="w-20 mb-6">
+            <Logo />
+          </div>
+          <p className="text-gray-500 block max-w-sm">
+            The new way to make a difference in the causes that matter most.
+          </p>
+        </div>
+
+        {/* <div className="">
+          <nav>
+            <FooterLink>About</FooterLink>
+            <FooterLink href="/terms">Terms</FooterLink>
+            <FooterLink href="/privacy">Privacy</FooterLink>
+            <FooterLink>Support</FooterLink>
+          </nav>
+        </div> */}
+
+        <div className="">
+          <nav>
+            <FooterLink>About</FooterLink>
+            <FooterLink href="/terms">Terms</FooterLink>
+            <FooterLink href="/privacy">Privacy</FooterLink>
+            <FooterLink>Support</FooterLink>
+          </nav>
+        </div>
       </div>
-      <nav>
-        <FooterLink>About</FooterLink>
-        <FooterLink href="/terms">Terms</FooterLink>
-        <FooterLink href="/privacy">Privacy</FooterLink>
-        <FooterLink>Support</FooterLink>
-      </nav>
-    </div>
+    </Container>
 
     <style jsx>{`
       footer {

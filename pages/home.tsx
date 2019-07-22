@@ -50,9 +50,7 @@ const EmptyState = () => (
 
 const PortfolioSection = () => (
   <div className="w-full mx-auto">
-    <div>
-      <Portfolio items={portfolio} />
-    </div>
+    <Portfolio items={portfolio} />
   </div>
 )
 
@@ -63,7 +61,7 @@ const Home = () => (
         <section className="w-full lg:w-3/4 lg:pr-16">
           <div className="item">
             <SectionTitle>In the Spotlight</SectionTitle>
-            <FeaturedBundle bundle={bundles.choice} />
+            <FeaturedBundle bundle={bundles.oceans} />
           </div>
           <div className="block lg:hidden item">
             <SectionTitle className="mb-2">Portfolio</SectionTitle>
@@ -92,7 +90,9 @@ const Home = () => (
             </p>
             <div className="max-w-sm">
               <Link href="/explore">
-                <SecondaryButton>Explore Causes and Bundles</SecondaryButton>
+                <a>
+                  <SecondaryButton>Explore Causes and Bundles</SecondaryButton>
+                </a>
               </Link>
             </div>
           </div>

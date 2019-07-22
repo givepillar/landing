@@ -55,7 +55,7 @@ const Row: React.FC<RowProps> = ({ item, shaded = false }) => (
 
 const Portfolio: React.FC<PortfolioProps> = ({ items }) => {
   return (
-    <Card className="block w-full border border-gray-100">
+    <Card className="block w-full  border-gray-100">
       {items.map((d, i) => (
         <Row shaded={i % 2 == 0} key={d.recipient.name} item={d} />
       ))}

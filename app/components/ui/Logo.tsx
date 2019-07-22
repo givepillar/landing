@@ -9,10 +9,12 @@ export const LogoLight = () => (
 const Logo = () => (
   <img
     className="block w-32 max-w-full shadow-xl rounded"
-    style={{
-      height: '72px',
-      background: 'RGBA(173, 6, 184, 1.00)',
-    }}
+    style={
+      {
+        // height: '72px',
+        // background: 'RGBA(173, 6, 184, 1.00)',
+      }
+    }
     src="/static/LogoBoxBig.png"
     alt=""
   />

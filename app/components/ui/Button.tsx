@@ -48,7 +48,7 @@ export const PrimaryButton: React.SFC<ButtonProps> = ({
     {...props}
     className={classnames(
       className,
-      'button bg-red-500 text-white tracking-wide rounded font-medium shadow-lg active:shadow'
+      'button bg-gradient text-white tracking-wide rounded font-medium shadow-lg active:shadow'
     )}
   >
     {children}
@@ -80,7 +80,7 @@ export const TertiaryButton: React.SFC<ButtonProps> = ({
     {...props}
     className={classnames(
       className,
-      'button text-grey-500 tracking-wide font-semibold'
+      'button text-grey-500 font-semibold hover:bg-gray-25'
     )}
   >
     {children}

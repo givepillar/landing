@@ -13,19 +13,32 @@ const custom = {
     '900': '#014D40',
   },
   gray: {
-    ...theme.colors.gray,
-    '25': '#F8FAFC',
-    '50': '#F0F4F8',
-    '100': '#D9E2EC',
-    '200': '#BCCCDC',
-    '300': '#9FB3C8',
-    '400': '#829AB1',
-    '500': '#627D98',
-    '600': '#486581',
-    '700': '#334E68',
-    '800': '#243B53',
-    '900': '#102A43',
+    '25': '#FAF9F7',
+    '50': '#FAF9F7',
+    '100': '#E8E6E1',
+    '200': '#D3CEC4',
+    '300': '#B8B2A7',
+    '400': '#A39E93',
+    '500': '#857F72',
+    '600': '#625D52',
+    '700': '#504A40',
+    '800': '#423D33',
+    '900': '#27241D',
   },
+  // gray: {
+  //   ...theme.colors.gray,
+  //   '25': '#F8FAFC',
+  //   '50': '#F0F4F8',
+  //   '100': '#D9E2EC',
+  //   '200': '#BCCCDC',
+  //   '300': '#9FB3C8',
+  //   '400': '#829AB1',
+  //   '500': '#627D98',
+  //   '600': '#486581',
+  //   '700': '#334E68',
+  //   '800': '#243B53',
+  //   '900': '#102A43',
+  // },
 }
 
 module.exports = {
@@ -35,9 +48,9 @@ module.exports = {
     },
     customForms: theme => ({
       default: {
-        'input, textarea, multiselect, select': {
-          backgroundColor: custom.gray['50'],
-          border: 'none',
+        'input, textarea, multiselect': {
+          // backgroundColor: custom.gray['50'],
+          // border: 'none',
         },
       },
     }),
@@ -45,6 +58,9 @@ module.exports = {
       fontFamily: {
         display: ['ff-meta-serif-web-pro', ...theme.fontFamily.serif],
         sans: ['aktiv-grotesk', ...theme.fontFamily.sans],
+      },
+      screens: {
+        print: { raw: 'print' },
       },
       colors: {
         ...custom,
@@ -57,6 +73,7 @@ module.exports = {
   },
   variants: {
     shadow: ['active'],
+    backgroundColor: ['hover'],
   },
   plugins: [require('@tailwindcss/custom-forms')],
 }

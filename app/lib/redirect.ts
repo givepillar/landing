@@ -4,6 +4,9 @@ const redirect = (context, target) => {
   if (context.res) {
     // server
     // 303: "See other"
+    // console.log('====================================')
+    // console.log(target)
+    // console.log('====================================')
     context.res.writeHead(303, { Location: target })
     context.res.end()
   } else {

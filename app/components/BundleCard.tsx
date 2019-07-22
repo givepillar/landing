@@ -12,16 +12,16 @@ interface BundleCardProps {
 
 const BundleCard: React.SFC<BundleCardProps> = ({ bundle, small, large }) => (
   <Link href="/to/[slug]" as={`/to/${bundle.slug}`}>
-    <a className="block">
+    <a className="block bg-white rounded shadow-float">
       <div>
         {!small && (
           <div
             className={
-              'image rounded bg-cover bg-center  ' + (large ? 'h-32' : 'h-20')
+              'image rounded-t bg-cover bg-center  ' + (large ? 'h-32' : 'h-20')
             }
           />
         )}
-        <div className=" py-3 bg h-full mt-1">
+        <div className="px-3 py-3 bg h-full mt-1">
           <div className="flex items-center">
             <div className="flex-1">
               <p className="inline-block font-bold mr-6">

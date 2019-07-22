@@ -25,6 +25,7 @@
     "react-apollo": "^2.5.8",
     "react-dom": "^16.8.6",
     "react-slick": "^0.24.0",
+    "react-spring": "^8.0.27",
     "styled-jsx-plugin-postcss": "^2.0.0",
     "victory": "^32.2.3"
   },

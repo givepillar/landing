@@ -3,6 +3,7 @@ import Link from 'next/link'
 import classnames from 'classnames'
 import Logo from './Logo'
 import Container from './Container'
+import { PrimaryButton } from './Button'
 
 interface LinkProps {
   to?: string
@@ -78,7 +79,7 @@ const SearchBar: React.SFC = () => {
 }
 
 const Nav: React.SFC = () => (
-  <nav className="block bg-white w-full">
+  <nav className="block w-full">
     <div className="bar h-2 block w-full" />
     <Container>
       <div className="flex flex-col items-center sm:flex-row justify-between sm:items-center py-8">
@@ -97,9 +98,17 @@ const Nav: React.SFC = () => (
           <NavLink to="/explore">Explore</NavLink>
           {/* <NavLink to="/tax">Tax Forms</NavLink> */}
 
-          <NavLink className="font-semibold ml-2" to="/">
+          <Link href="/quiz/overview">
+            <a>
+              <PrimaryButton size="sm" className="inline-flex ml-2">
+                Get Started
+              </PrimaryButton>
+            </a>
+          </Link>
+
+          {/* <NavLink className="font-semibold ml-2" to="/">
             Oscar
-          </NavLink>
+          </NavLink> */}
         </section>
       </div>
     </Container>

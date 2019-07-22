@@ -1,10 +1,13 @@
 import { useRouter } from 'next/router'
 import React from 'react'
-import DonationBox from '../../app/components/DonationBox'
-import Layout from '../../app/components/Layout'
-import Highlight from '../../app/components/ui/Highlight'
-import { bundles } from '../../app/mock/data'
-import { Bundle } from '../../app/types'
+import DonationBox from '../../../app/components/DonationBox'
+import Layout from '../../../app/components/Layout'
+import Highlight from '../../../app/components/ui/Highlight'
+import { bundles } from '../../../app/mock/data'
+import { Bundle } from '../../../app/types'
+import Link from 'next/link'
+import NonprofitCard from '../../../app/components/NonprofitCard'
+import { PrimaryButton } from '../../../app/components/ui/Button'
 
 const BundlePage = () => {
   const router = useRouter()
@@ -14,7 +17,7 @@ const BundlePage = () => {
 
   return (
     <Layout title={bundle.name + ' | Pillar'}>
-      <div className="flex justify-center flex-col lg:flex-row">
+      <div className="flex justify-center flex-col lg:flex-row relative">
         <div className="max-w-full lg:max-w-3xl mb-12 lg:mb-0">
           <div className="image bg-cover bg-center rounded shadow-xl mb-12" />
 
@@ -60,8 +63,14 @@ const BundlePage = () => {
               All donations are split equally among these nonprofits.
             </p>
 
-            {bundle.nonprofits &&
-              bundle.nonprofits.map(np => <div>{np.name}</div>)}
+            <div className="flex flex-wrap -m-6 my-8">
+              {bundle.nonprofits &&
+                bundle.nonprofits.map(np => (
+                  <div key={np.slug} className="p-6 sm:w-1/2 w-full">
+                    <NonprofitCard nonprofit={np} />
+                  </div>
+                ))}
+            </div>
           </section>
 
           <h2 className="text-2xl mt-12 mb-6 font-medium">
@@ -79,6 +88,17 @@ const BundlePage = () => {
             <DonationBox bundle={bundle} />
           </div>
         </div>
+        {/* <div
+          className={
+            'fixed bg-gray-25 bottom-0 flex justify-center ' +
+            'items-center mb-16 p-6 max-w-3xl mx-auto w-full rounded shadow-xl'
+          }
+        >
+          <p className="font-bold text-lg text-gray-500 mr-4">
+            Make a difference:
+          </p>
+          <PrimaryButton size="lg">Support this Fund</PrimaryButton>
+        </div> */}
       </div>
       <style jsx>{`
         .image {
