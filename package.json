@@ -26,8 +26,7 @@
     "react-dom": "^16.8.6",
     "react-slick": "^0.24.0",
     "react-spring": "^8.0.27",
-    "styled-jsx-plugin-postcss": "^2.0.0",
-    "victory": "^32.2.3"
+    "styled-jsx-plugin-postcss": "^2.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
@@ -41,7 +40,6 @@
     "@types/react": "^16.8.19",
     "@types/react-dom": "^16.8.4",
     "@types/styled-jsx": "^2.2.8",
-    "@types/victory": "^31.0.18",
     "@zeit/next-typescript": "^1.1.1",
     "autoprefixer": "^9.5.1",
     "babel-loader": "^8.0.6",

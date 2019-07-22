@@ -1,6 +1,8 @@
 import cn from 'classnames'
 import React, { useEffect, useState } from 'react'
 import Layout from '../../app/components/Layout'
+import { Categories } from '../../app/mock/data'
+import Highlight from '../../app/components/ui/Highlight'
 
 const Section = ({ children }) => (
   <section className="mb-24 flex flex-col items-center">{children}</section>
@@ -236,7 +238,12 @@ const Overview = () => {
       <Section>
         <SectionHeader>
           <Kicker>Step 3</Kicker>
-          <Title>Pick your causes</Title>
+          <Title>Make your difference.</Title>
+          <Description>
+            <Highlight color={Categories.environment.colors.light}>
+              We're excited to help you make your impact
+            </Highlight>
+          </Description>
         </SectionHeader>
       </Section>
     </Layout>

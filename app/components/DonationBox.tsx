@@ -23,8 +23,8 @@ const DonationBox: React.SFC<DonationBoxProps> = ({ bundle }) => {
     <div className="bg-white rounded-lg border border-gray-100 shadow-xl overflow-hidden">
       <div className="p-4">
         <p className="text-xl mb-1 font-semibold">Want to do something?</p>
-        <p className="mb-12 text-gray-700">
-          Add to your portfolio to support this cause monthly.
+        <p className="mb-6 text-gray-700">
+          Support this cause by giving monthly.
         </p>
         {/* <div className="mb-8">
           <SegmentedControl
@@ -74,7 +74,7 @@ import { currency } from '../lib/currency';
             size="lg"
           >
             <i className="fas fa-plus mr-2 text-red-200" />
-            Add to my portfolio
+            Support this cause
           </PrimaryButton>
           {/* </Link> */}
           {/* <TertiaryButton className="w-full mt-2">Or give once</TertiaryButton> */}
