@@ -1,9 +1,11 @@
 import cn from 'classnames'
 import React, { useEffect, useState } from 'react'
+import BundleCard from '../../app/components/BundleCard'
 import Layout from '../../app/components/Layout'
-import { Categories } from '../../app/mock/data'
 import Highlight from '../../app/components/ui/Highlight'
-
+import { Categories, bundles } from '../../app/mock/data'
+import TextInput from '../../app/components/ui/form/TextInput'
+import SignupForm from '../../app/components/SignupForm'
 const Section = ({ children }) => (
   <section className="mb-24 flex flex-col items-center">{children}</section>
 )
@@ -245,6 +247,22 @@ const Overview = () => {
             </Highlight>
           </Description>
         </SectionHeader>
+
+        <div className="flex rounded w-full max-w-3xl">
+          <div className="w-1/2 py-4 px-10  pointer-events-none flex flex-col items-center">
+            <div className="mb-6 w-full">
+              <BundleCard bundle={bundles.choice} small />
+            </div>
+            <div className="mb-8 w-full">
+              <BundleCard bundle={bundles.oceans} small />
+            </div>
+            <div className="text-gray-600">&hellip; and 3 more</div>
+          </div>
+
+          <div className="w-1/2">
+            <SignupForm />
+          </div>
+        </div>
       </Section>
     </Layout>
   )
