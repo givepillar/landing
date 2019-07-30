@@ -18,6 +18,12 @@ h1 {
   background: linear-gradient(theme(colors.red.400) 0%, theme(colors.red.500));
 }
 
+.bg-gradient-reverse {
+  /* background: linear-gradient(120deg, #f78b4a 0%, #dc619e 100%) */
+
+  background: linear-gradient(theme(colors.red.500) 0%, theme(colors.red.400));
+}
+
 .up-half {
   transform: translateY(-50%);
 }

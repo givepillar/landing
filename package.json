@@ -6,15 +6,18 @@
     "start": "next start",
     "now-build": "next build",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "apollo:codegen": "apollo codegen:generate --excludes=node_modules/* --includes=**/*.tsx --target typescript --tagName gql --outputFlat app/generated --passthroughCustomScalars"
   },
   "dependencies": {
+    "@apollo/react-hooks": "^0.1.0-beta.11",
     "@reach/dialog": "^0.2.9",
     "@reach/menu-button": "^0.1.18",
     "@svgr/webpack": "^4.3.0",
     "@types/classnames": "^2.2.7",
     "@types/nprogress": "^0.2.0",
     "@zeit/next-css": "^1.0.1",
+    "apollo": "^2.16.3",
     "apollo-boost": "^0.4.3",
     "classnames": "^2.2.6",
     "graphql": "^14.4.2",

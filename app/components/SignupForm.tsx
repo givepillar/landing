@@ -1,7 +1,6 @@
 import React from 'react'
 import PrimaryButton from './ui/Button'
 import TextInput from './ui/form/TextInput'
-import Link from 'next/link'
 
 const SignupForm = () => {
   return (

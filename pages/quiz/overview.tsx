@@ -25,7 +25,7 @@ const SectionHeader = ({ children }) => (
   <div className="mb-12 text-center">{children}</div>
 )
 
-const ToggleCheck = ({ toggled }) => (
+export const ToggleCheck = ({ toggled }) => (
   <div
     className={cn(
       'w-6 h-6 border border-gray-100 rounded-full',

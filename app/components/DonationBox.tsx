@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { Bundle } from '../types'
 import { PrimaryButton, TertiaryButton } from './ui/Button'
 import SegmentedControl from './ui/SegmentedControl'
+import Link from 'next/link'
 
 interface DonationBoxProps {
   bundle: Bundle
@@ -67,16 +68,16 @@ import { currency } from '../lib/currency';
           )} */}
         </div>
         <>
-          {/* <Link href="/to/[slug]/give" as={`/to/${bundle.slug}/give`}> */}
-          <PrimaryButton
-            onClick={() => setShowAmounts(true)}
-            className="w-full mt-6 font-bold text-white"
-            size="lg"
-          >
-            <i className="fas fa-plus mr-2 text-red-200" />
-            Support this cause
-          </PrimaryButton>
-          {/* </Link> */}
+          <Link href="/to/[slug]/give" as={`/to/${bundle.slug}/give`}>
+            <PrimaryButton
+              onClick={() => setShowAmounts(true)}
+              className="w-full mt-6 font-bold text-white"
+              size="lg"
+            >
+              <i className="fas fa-plus mr-2 text-red-200" />
+              Support this cause
+            </PrimaryButton>
+          </Link>
           {/* <TertiaryButton className="w-full mt-2">Or give once</TertiaryButton> */}
         </>
       </div>

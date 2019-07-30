@@ -8,7 +8,7 @@ function create(initialState) {
   const isBrowser = typeof window !== 'undefined'
   // @ts-ignore
   return new ApolloClient({
-    uri: 'http://localhost:5000',
+    uri: 'http://localhost:4000/graphql',
     fetch: !isBrowser && fetch,
   })
 }
