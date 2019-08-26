@@ -93,7 +93,6 @@ const GET_AUTH_STATE = gql`
 
 const Nav: React.SFC = () => {
   const { data, loading, error } = useQuery(GET_AUTH_STATE)
-  const client = useApolloClient()
 
   if (loading) return <div>Loading...</div>
   if (error) return <div>error</div>

@@ -10,8 +10,8 @@ export class FBSigninButton extends React.Component {
       <a
         href={
           'https://www.facebook.com/v3.3/dialog/oauth?' +
-          'client_id=2173405042756743' +
-          '&redirect_uri=http://localhost:3000/verify/facebook' +
+          `client_id=${process.env.FB_CLIENT_ID}` +
+          `&redirect_uri=${process.env.BASE_URL}/verify/facebook` +
           "&scope=['email', 'user_friends', 'user_likes', 'user_hometown', 'user_location']"
         }
       >

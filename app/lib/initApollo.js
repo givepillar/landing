@@ -12,7 +12,7 @@ if (typeof window === 'undefined') {
 
 function create(initialState, { getToken, fetchOptions }) {
   const httpLink = createHttpLink({
-    uri: 'http://localhost:4000/graphql',
+    uri: process.env.API_URL,
     credentials: 'same-origin',
     fetchOptions,
   })
