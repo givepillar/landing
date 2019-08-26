@@ -21,13 +21,12 @@ const LoginForm = () => {
 
   const client = useApolloClient()
 
-  const [loginUser, { data }] = useMutation(LOGIN_USER, {
+  const [loginUser, { loading }] = useMutation(LOGIN_USER, {
     onCompleted: data => {
-      setEmail('')
-      setPassword('')
-
       console.log(data)
       signIn({ token: data.loginUser.accessToken, client })
+      setEmail('')
+      setPassword('')
     },
     onError: console.error,
   })
@@ -51,16 +50,29 @@ const LoginForm = () => {
         <div className="w-full text-center text-xs uppercase tracking-wide text-gray-500 font-bold my-6">
           <p>Or</p>
         </div>
-        <TextInput title="Email" type="email" name="email" className="mb-6" />
+        <TextInput
+          title="Email"
+          type="email"
+          name="email"
+          className="mb-6"
+          value={email}
+          onChange={setEmail}
+        />
         <div className="mb-12">
-          <TextInput title="Password" name="password" type="password" />
+          <TextInput
+            title="Password"
+            name="password"
+            type="password"
+            value={password}
+            onChange={setPassword}
+          />
           <Link href="/login">
             <a className="link text-sm inline-block mt-2">
               Forgot your password?
             </a>
           </Link>
         </div>
-        <PrimaryButton type="submit" className="w-full">
+        <PrimaryButton loading={loading} type="submit" className="w-full">
           Sign in
         </PrimaryButton>
         <p className="mt-4 w-full text-center">

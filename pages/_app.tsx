@@ -2,10 +2,11 @@ import App, { Container } from 'next/app'
 import Router from 'next/router'
 import NProgress from 'nprogress'
 import React from 'react'
-import { ApolloProvider } from '@apollo/react-hooks'
 import withApolloClient from '../app/lib/withApollo'
 import '../app/styles/index.css'
 import '../app/styles/nprogress.css'
+import { ApolloProvider } from 'react-apollo'
+import { ApolloProvider as ApolloHooksProvider } from '@apollo/react-hooks'
 
 export interface ApolloProps {
   apolloClient: any
@@ -29,9 +30,11 @@ class Base extends App<ApolloProps> {
     return (
       <div className="flex-1 flex font-sans text-gray-900 antialiased">
         <Container>
-          <ApolloProvider client={apolloClient}>
-            <Component {...pageProps} />
-          </ApolloProvider>
+          <ApolloHooksProvider client={apolloClient}>
+            <ApolloProvider client={apolloClient}>
+              <Component {...pageProps} />
+            </ApolloProvider>
+          </ApolloHooksProvider>
         </Container>
       </div>
     )

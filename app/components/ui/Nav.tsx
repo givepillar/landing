@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
-import Link from 'next/link'
+import { useApolloClient, useQuery } from '@apollo/react-hooks'
+// and the styles
+import '@reach/menu-button/styles.css'
 import classnames from 'classnames'
-import Logo from './Logo'
-import Container from './Container'
+import gql from 'graphql-tag'
+import Link from 'next/link'
+import React, { useState } from 'react'
 import { PrimaryButton } from './Button'
+import Container from './Container'
+import Logo from './Logo'
 
 interface LinkProps {
   to?: string
@@ -78,64 +82,107 @@ const SearchBar: React.SFC = () => {
   )
 }
 
-const Nav: React.SFC = () => (
-  <nav className="block w-full">
-    <div className="bar h-2 block w-full" />
-    <Container>
-      <div className="flex flex-col items-center sm:flex-row justify-between sm:items-center py-8">
-        <section className="mb-6 sm:mb-0 ">
-          <Link href="/home">
-            <a>
-              <Logo />
-            </a>
-          </Link>
-        </section>
-        <section className="mx-24 flex-1 hidden md:block">
-          <SearchBar />
-        </section>
-        <section className="-mx-3 mr-2">
-          <NavLink to="/home">Home</NavLink>
-          <NavLink to="/explore">Explore</NavLink>
-          {/* <NavLink to="/tax">Tax Forms</NavLink> */}
+const GET_AUTH_STATE = gql`
+  query getAuthState {
+    viewer {
+      id
+      firstName
+    }
+  }
+`
 
-          <Link href="/quiz/overview">
-            <a>
-              <PrimaryButton size="sm" className="inline-flex ml-2">
-                Get Started
-              </PrimaryButton>
-            </a>
-          </Link>
+const Nav: React.SFC = () => {
+  const { data, loading, error } = useQuery(GET_AUTH_STATE)
+  const client = useApolloClient()
 
-          {/* <NavLink className="font-semibold ml-2" to="/">
+  if (loading) return <div>Loading...</div>
+  if (error) return <div>error</div>
+
+  const { viewer } = data
+  const loggedIn = !!viewer
+
+  return (
+    <div>
+      <nav className="block w-full">
+        <div className="bar h-2 block w-full" />
+
+        <Container>
+          <div className="flex flex-col items-center sm:flex-row justify-between sm:items-center py-8">
+            <section className="mb-6 sm:mb-0 ">
+              <Link href="/home">
+                <a>
+                  <Logo />
+                </a>
+              </Link>
+            </section>
+            <section className="mx-24 flex-1 hidden md:block">
+              <SearchBar />
+            </section>
+            <section className="-mx-3 mr-2 flex items-center">
+              <NavLink to="/home">Home</NavLink>
+              <NavLink to="/explore">Explore</NavLink>
+              {/* <NavLink to="/tax">Tax Forms</NavLink> */}
+
+              {!loggedIn && (
+                <Link href="/quiz/overview">
+                  <a>
+                    <PrimaryButton size="sm" className="inline-flex ml-2">
+                      Get Started
+                    </PrimaryButton>
+                  </a>
+                </Link>
+              )}
+
+              <div className="ml-2">
+                {loggedIn && (
+                  <Link href="/settings">
+                    <a className="flex items-center">
+                      <div className="bg-gray-100 h-8 w-8 flex items-center justify-center rounded-full">
+                        <i className="fas fa-user text-xs" />
+                      </div>
+                    </a>
+                  </Link>
+                )}
+              </div>
+
+              {/* <NavLink className="font-semibold ml-2" to="/">
             Oscar
           </NavLink> */}
-        </section>
-      </div>
-    </Container>
+            </section>
+          </div>
+        </Container>
 
-    <style jsx>{`
-      .bar {
-        background: url('/static/navbg.svg');
-        @apply bg-cover;
-        background-position: center;
-      }
-      nav {
-         {
-          /* background: url('/static/navbg.svg'); */
-        }
-         {
-          /* background: radial-gradient(
-            100% 400% at 60% 10%,
-            RGBA(236, 49, 177, 1),
-            RGBA(235, 54, 210, 0) 40%
-          ),
-          linear-gradient(0.25turn, #e9341b, #ead024); */
-        }
-        @apply bg-cover;
-        background-position: top;
-      }
-    `}</style>
-  </nav>
-)
+        <style jsx>{`
+          .bar {
+            background: url('/static/navbg.svg');
+            @apply bg-cover;
+            background-position: center;
+          }
+          nav {
+            @apply bg-cover;
+            background-position: top;
+          }
+        `}</style>
+
+        <style jsx global>{`
+          [data-reach-menu-list] {
+            padding: 0;
+            @apply rounded-sm shadow-md border-none overflow-hidden mt-2;
+            @apply text-gray-900 mx-4;
+          }
+
+          [data-reach-menu-item] {
+            @apply font-sans font-medium;
+            @apply py-2;
+          }
+
+          [data-reach-menu-item][data-selected] {
+            @apply bg-gray-100 text-gray-900;
+          }
+        `}</style>
+      </nav>
+    </div>
+  )
+}
 
 export default Nav
