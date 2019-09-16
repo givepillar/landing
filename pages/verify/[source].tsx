@@ -5,6 +5,17 @@ import Logo from '../../app/components/ui/Logo'
 import Spinner from '../../app/components/ui/Spinner'
 import Link from 'next/link'
 import redirect from '../../app/lib/redirect'
+import gql from 'graphql-tag'
+
+const VERIFY_CODE = gql`
+  mutation verifyCode($code: String!) {
+    signupUserFacebook(facebookCode: $code) {
+      user {
+        id
+      }
+    }
+  }
+`
 
 const Verify = () => {
   const router = useRouter()

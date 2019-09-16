@@ -25,8 +25,8 @@ const LoginForm = () => {
     onCompleted: data => {
       console.log(data)
       signIn({ token: data.loginUser.accessToken, client })
-      setEmail('')
-      setPassword('')
+      // setEmail('')
+      // setPassword('')
     },
     onError: console.error,
   })
@@ -46,10 +46,10 @@ const LoginForm = () => {
       }}
     >
       <div className="max-w-sm w-full block ">
-        <FBSigninButton />
+        {/* <FBSigninButton />
         <div className="w-full text-center text-xs uppercase tracking-wide text-gray-500 font-bold my-6">
           <p>Or</p>
-        </div>
+        </div> */}
         <TextInput
           title="Email"
           type="email"

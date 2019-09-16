@@ -1,34 +1,53 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PrimaryButton from './ui/Button'
 import TextInput from './ui/form/TextInput'
+import gql from 'graphql-tag'
+import { useMutation } from 'react-apollo'
+
+const SIGNUP_USER = gql`
+  mutation SignupUser($user: SignupInput!, $credentials: Credentials!) {
+    signupUser(newUser: $user, credentials: $credentials) {
+      user {
+        id
+      }
+      code
+      message
+      success
+    }
+  }
+`
 
 const SignupForm = () => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const [signupUser, { loading }] = useMutation(SIGNUP_USER, {
+    onCompleted: console.log,
+    onError: console.error,
+  })
+
   return (
-    <form className="max-w-sm bg-white w-full block shadow-xl border-gray-100 rounded-lg p-12">
-      <a
-        href={
-          'https://www.facebook.com/v3.3/dialog/oauth?' +
-          'client_id=2173405042756743' +
-          '&redirect_uri=http://localhost:3000/verify/facebook' +
-          "&scope=['email', 'user_friends', 'user_likes', 'user_hometown', 'user_location']"
-        }
-      >
-        <PrimaryButton
-          type="button"
-          style={{ background: '#3b5998' }}
-          className="w-full"
-        >
-          <i className="fab fa-facebook mr-2" /> Sign up with Facebook
-        </PrimaryButton>
-      </a>
-      <div className="w-full text-center text-xs uppercase tracking-wide text-gray-500 font-bold my-6">
-        <p>Or</p>
+    <form>
+      <div className="max-w-sm w-full block">
+        <TextInput
+          title="Email"
+          value={email}
+          onChange={setEmail}
+          type="email"
+          name="email"
+          className="mb-6"
+        />
+        <div className="mb-12">
+          <TextInput
+            title="Password"
+            value={password}
+            onChange={setPassword}
+            name="password"
+            type="password"
+          />
+        </div>
+        <PrimaryButton className="w-full">Sign up</PrimaryButton>
       </div>
-      <TextInput title="Email" type="email" name="email" className="mb-6" />
-      <div className="mb-12">
-        <TextInput title="Password" name="password" type="password" />
-      </div>
-      <PrimaryButton className="w-full">Sign up</PrimaryButton>
     </form>
   )
 }

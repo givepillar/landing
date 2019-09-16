@@ -13,22 +13,20 @@ import { PrimaryButton } from '../../../app/components/ui/Button'
 
 const tiers = [
   {
-    name: '💜 Make a change',
-    description: 'Do a normal good thing',
-    price: 2315,
-    impact: 'Save a tree or two',
+    name: '☕️ A Coffee a Week',
+    description: 'The average amount people in your area give',
+    price: 1600,
     suggested: true,
   },
   {
-    name: '🔥 This is it',
-    description: 'Do a really good thing',
-    price: 6251,
-    impact: 'Save a tree or two',
+    name: '☕️☕️ Two Coffees a Week',
+    description: 'Who just drinks one coffee?',
+    price: 3200,
   },
   {
-    name: '🌳 Do Some Good',
-    description: 'Do a barely good thing',
-    price: 1612,
+    name: '📺 Just Netflix',
+    description: 'A little bit goes a longway',
+    price: 800,
     impact: 'Save a tree or two',
   },
 ]

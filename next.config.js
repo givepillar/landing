@@ -7,7 +7,7 @@ const env = {
   API_URL: prod
     ? 'https://api.pillar.gives/graphql'
     : 'http://localhost:4000/graphql',
-  BASE_URL: prod ? 'https://pillar.gives' : 'https://localhost:3000',
+  BASE_URL: prod ? 'https://pillar.gives' : 'http://localhost:3000',
 }
 
 module.exports = withCSS({
