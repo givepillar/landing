@@ -8,6 +8,8 @@ import { Bundle } from '../../../app/types'
 import Link from 'next/link'
 import NonprofitCard from '../../../app/components/NonprofitCard'
 import { PrimaryButton } from '../../../app/components/ui/Button'
+import { useQuery } from 'react-apollo'
+import gql from 'graphql-tag'
 
 const BundleTag = ({ children, slug = '' }) => (
   <Link href={`/tag/${slug}`}>
@@ -22,11 +24,50 @@ const BundleTag = ({ children, slug = '' }) => (
   </Link>
 )
 
+const GET_BUNDLE = gql`
+  query getBundle($slug: String!) {
+    bundleBySlug(slug: $slug) {
+      bundle {
+        id
+        name
+        description
+        image {
+          url
+        }
+        callToAction
+        lede
+        organizations {
+          name
+          slug
+          image {
+            url
+          }
+        }
+        donations {
+          numberOfDonations
+          numberOfSubscribers
+          totalAmountReceived
+        }
+      }
+    }
+  }
+`
+
 const BundlePage = () => {
   const router = useRouter()
   const { slug } = router.query
 
   const bundle: Bundle = Object.values(bundles).find(b => b.slug === slug)
+
+  const { loading, error, data } = useQuery(GET_BUNDLE, {
+    variables: {
+      slug: slug,
+    },
+  })
+
+  console.log(loading)
+  console.log(error)
+  console.log(data)
 
   return (
     <Layout title={bundle.name + ' | Pillar'}>
