@@ -9,6 +9,8 @@ import Chart from '../app/img/chart.svg'
 import Love from '../app/img/love.svg'
 import Meditate from '../app/img/meditate.svg'
 import { Categories } from '../app/mock/data'
+import Base from '../app/components/Base'
+import Layout from '../app/components/Layout'
 
 const funds = [
   {
@@ -146,9 +148,7 @@ const FundCard = ({ fund }) => (
       <div className="flex justify-between items-center mb-1">
         <p className="text-lg font-bold mr-6">{fund.name}</p>
         <span
-          className={`bg-${fund.category.color}-100 text-${
-            fund.category.color
-          }-900 font-medium rounded-full px-4 text-xs`}
+          className={`bg-${fund.category.color}-100 text-${fund.category.color}-900 font-medium rounded-full px-4 text-xs`}
           style={{ paddingTop: 2, paddingBottom: 2 }}
         >
           {fund.category.name}
@@ -281,101 +281,110 @@ const OutreachPanel = () => (
 // )
 
 const Home = () => (
-  <div className="w-full">
-    <Head title="Pillar" />
-    <Hero />
+  <Base>
+    <div className="w-full h-full bg-gray-50">
+      <div className="h-2 bar block w-full"></div>
+      <Hero />
 
-    <div className="container px-6 overflow-hidden mb-20">
-      <Panel
-        media={
-          <SectionMedia>
-            <FundList funds={funds} />
-          </SectionMedia>
-        }
-        copy={
-          <SectionCopy
-            title="Give to causes directly."
-            subtitle="We'll do the heavy lifting."
-            theme="teal"
-          >
-            We have expertly curated bundles of charities to create maximum
-            impact, always up to date. Give once and know that every dollar is
-            making the most change. All you need to do is find what resonates
-            with you.
-          </SectionCopy>
-        }
-      />
-      <Panel
-        flip
-        media={
-          <SectionMedia>
-            <div className="max-w-sm mx-auto">
-              <Chart />
-            </div>
-          </SectionMedia>
-        }
-        copy={
-          <SectionCopy
-            title="All of your impact."
-            subtitle="All in one place."
-            theme="red"
-          >
-            Forget checkbooks, spreadsheets, and messy folders of receipts. See
-            the difference each dollar you give is making from one place, with
-            one tax receipt.
-          </SectionCopy>
-        }
-      />
-      <Panel
-        media={
-          <SectionMedia>
-            <div className="max-w-sm mx-auto">
-              <Love />
-            </div>
-          </SectionMedia>
-        }
-        copy={
-          <SectionCopy
-            title="Give a little."
-            subtitle="Change a lot."
-            theme="blue"
-          >
-            Anyone can be a giver. With a $1 minimum donation, give as much or
-            little as you can. Let us show you how the smallest amounts make a
-            real difference when we all combine our efforts.
-          </SectionCopy>
-        }
-      />
-      <Panel
-        flip
-        media={
-          <SectionMedia>
-            <div className="max-w-xs mx-auto">
-              <Meditate />
-            </div>
-          </SectionMedia>
-        }
-        copy={
-          <SectionCopy
-            title="Charities you can trust."
-            subtitle="Without the spam."
-            theme="purple"
-          >
-            We carefully vet nonprofits' tax filings and industry standard
-            ratings, alongside our own meticulous research, to find the most
-            impactul and trustworthy organizations in every field. Best of all?
-            We can protect your info, so no more sifting through hundreds of
-            emails and letters asking for your money.
-          </SectionCopy>
-        }
-      />
+      <div className="container px-6 overflow-hidden mb-20">
+        <Panel
+          media={
+            <SectionMedia>
+              <FundList funds={funds} />
+            </SectionMedia>
+          }
+          copy={
+            <SectionCopy
+              title="Give to causes directly."
+              subtitle="We'll do the heavy lifting."
+              theme="teal"
+            >
+              We have expertly curated bundles of charities to create maximum
+              impact, always up to date. Give once and know that every dollar is
+              making the most change. All you need to do is find what resonates
+              with you.
+            </SectionCopy>
+          }
+        />
+        <Panel
+          flip
+          media={
+            <SectionMedia>
+              <div className="max-w-sm mx-auto">
+                <Chart />
+              </div>
+            </SectionMedia>
+          }
+          copy={
+            <SectionCopy
+              title="All of your impact."
+              subtitle="All in one place."
+              theme="red"
+            >
+              Forget checkbooks, spreadsheets, and messy folders of receipts.
+              See the difference each dollar you give is making from one place,
+              with one tax receipt.
+            </SectionCopy>
+          }
+        />
+        <Panel
+          media={
+            <SectionMedia>
+              <div className="max-w-sm mx-auto">
+                <Love />
+              </div>
+            </SectionMedia>
+          }
+          copy={
+            <SectionCopy
+              title="Give a little."
+              subtitle="Change a lot."
+              theme="blue"
+            >
+              Anyone can be a giver. With a $1 minimum donation, give as much or
+              little as you can. Let us show you how the smallest amounts make a
+              real difference when we all combine our efforts.
+            </SectionCopy>
+          }
+        />
+        <Panel
+          flip
+          media={
+            <SectionMedia>
+              <div className="max-w-xs mx-auto">
+                <Meditate />
+              </div>
+            </SectionMedia>
+          }
+          copy={
+            <SectionCopy
+              title="Charities you can trust."
+              subtitle="Without the spam."
+              theme="purple"
+            >
+              We carefully vet nonprofits' tax filings and industry standard
+              ratings, alongside our own meticulous research, to find the most
+              impactul and trustworthy organizations in every field. Best of
+              all? We can protect your info, so no more sifting through hundreds
+              of emails and letters asking for your money.
+            </SectionCopy>
+          }
+        />
+      </div>
+
+      <OutreachPanel />
+      <div className="mb-24" />
+
+      <Footer />
     </div>
-
-    <OutreachPanel />
-    <div className="mb-24" />
-
-    <Footer />
-  </div>
+    <style jsx>{`
+      .bar {
+        background: url('/static/navbg.svg');
+        @apply bg-cover;
+        background-position: center;
+      }
+    `}</style>
+  </Base>
 )
 
 export default Home

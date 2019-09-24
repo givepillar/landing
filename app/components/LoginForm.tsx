@@ -44,8 +44,9 @@ const LoginForm = () => {
           },
         })
       }}
+      className="max-w-sm w-full margin-auto"
     >
-      <div className="max-w-sm w-full block ">
+      <div className="w-full block ">
         {/* <FBSigninButton />
         <div className="w-full text-center text-xs uppercase tracking-wide text-gray-500 font-bold my-6">
           <p>Or</p>
