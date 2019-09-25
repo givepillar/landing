@@ -1,17 +1,21 @@
+import Link from 'next/link'
 import React from 'react'
 import Base from '../app/components/Base'
+import BundleCard from '../app/components/BundleCard'
 import LandingForm from '../app/components/LandingForm'
 import Footer from '../app/components/ui/Footer'
 import Logo from '../app/components/ui/Logo'
-import SuggestionCarousel from '../app/components/SuggestionCarousel'
 import { bundles } from '../app/mock/data'
-import BundleCard from '../app/components/BundleCard'
 
 const Nav = () => (
   <nav className="py-8">
     <div className="flex justify-center items-center">
       {/* <div className="flex-1" /> */}
-      <Logo />
+      <Link href="/">
+        <a>
+          <Logo />
+        </a>
+      </Link>
       {/* <div className="flex-1 text-right">
         <Link href="/login">
           <a className="text-black font-semibold p-6">

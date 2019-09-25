@@ -20,16 +20,7 @@ const LandingForm = () => {
 
   const nextStep = useCallback(() => {
     console.log(`getting next for ${step.name}`)
-    switch (step.name) {
-      case 'email':
-        next('quiz')
-        break
-      case 'quiz':
-        // next('times')
-        break
-      default:
-        break
-    }
+
     return false
   }, [next])
 

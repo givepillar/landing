@@ -63,13 +63,13 @@ const Home = () => (
             <SectionTitle>In the Spotlight</SectionTitle>
             <FeaturedBundle bundle={bundles.climate} />
           </div>
-          <div className="block lg:hidden item">
+          {/* <div className="block lg:hidden item">
             <SectionTitle className="mb-2">Portfolio</SectionTitle>
             <p className="mb-6 text-sm font-semibold text-gray-500">
               Will charge on August 1, 2019
             </p>
             <PortfolioSection />
-          </div>
+          </div> */}
           <div className="item">
             <SuggestionCarousel />
           </div>
