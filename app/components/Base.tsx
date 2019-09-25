@@ -6,8 +6,10 @@ interface BaseProps {
 }
 const Base: React.SFC<BaseProps> = ({ title = 'Pillar', children }) => (
   <>
-    <Head title={title} />
-    {children}
+    <div className="flex-1 flex">
+      <Head title={title} />
+      {children}
+    </div>
   </>
 )
 

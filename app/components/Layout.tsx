@@ -17,8 +17,8 @@ const Layout: React.FC<LayoutProps> = ({
   padContent = true,
 }) => (
   <Base title={title}>
-    <div className="flex-1 flex-col bg-gray-25">
-      <main>
+    <div className="flex-1 flex flex-col bg-gray-25">
+      <main className="pb-24 flex-1">
         <div className="">{nav && <Nav />}</div>
         {padContent ? (
           <Container className="flex-1 py-4">{children}</Container>
@@ -26,6 +26,7 @@ const Layout: React.FC<LayoutProps> = ({
           <div className="flex-1">{children}</div>
         )}
       </main>
+      <Footer></Footer>
     </div>
   </Base>
 )

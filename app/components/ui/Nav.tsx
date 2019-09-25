@@ -117,7 +117,7 @@ const Nav: React.SFC = () => {
             <section className="mx-24 flex-1 hidden md:block">
               {/* <SearchBar /> */}
             </section>
-            <section className="-mx-3 mr-2 flex items-center">
+            <section className="flex items-center">
               {/* <NavLink to="/home">Home</NavLink> */}
               {/* <NavLink to="/explore">Explore</NavLink> */}
               {/* <NavLink to="/tax">Tax Forms</NavLink> */}
@@ -125,7 +125,7 @@ const Nav: React.SFC = () => {
               <Link href="/quiz/overview">
                 <a>
                   <PrimaryButton size="sm" className="inline-flex ml-2">
-                    Get Started
+                    Explore
                   </PrimaryButton>
                 </a>
               </Link>
