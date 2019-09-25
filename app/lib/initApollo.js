@@ -41,7 +41,9 @@ export default function initApollo(initialState, options) {
   // Make sure to create a new client for every server-side request so that data
   // isn't shared between connections (which would be bad)
   if (typeof window === 'undefined') {
-    let fetchOptions = {}
+    let fetchOptions = {
+      mode: 'no-cors',
+    }
     // If you are using a https_proxy, add fetchOptions with 'https-proxy-agent' agent instance
     // 'https-proxy-agent' is required here because it's a sever-side only module
     if (process.env.https_proxy) {
