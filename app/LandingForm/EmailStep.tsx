@@ -9,7 +9,10 @@ const EmailStep = ({ value, onChange, back, done, next }) => {
     <div>
       <div className="flex flex-col md:items-center justify-start md:justify-between">
         <div className="max-w-md md:max-w-xs p-6 flex items-center justify-center">
-          <img src="/static/landing/bulbscol.png" alt="Abstract Light bulbs" />
+          <img
+            src="/static/landing/bulbscolor.png"
+            alt="Abstract Light bulbs"
+          />
         </div>
         <div className="text-center md:text-left">
           <div className="text-2xl font-bold sm:text-3xl leading-normal max-w-2xl">
