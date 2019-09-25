@@ -250,7 +250,8 @@ export const bundles = {
     name: 'Mental Health',
     longTitle: 'What happens to Americans with mental illness?',
     slug: 'mental-health',
-    description: '',
+    description:
+      'Support research, advocacy, and support of mental health issues around the world',
     primaryCategory: Categories.health,
     imageUrl:
       'https://images.unsplash.com/photo-1494029722188-672a328c4989?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1891&q=80 ',
@@ -330,7 +331,7 @@ export const bundles = {
     slug: 'amazon-fires',
     longTitle: `A sixth of Earth's oxygen supply is at risk`,
     primaryCategory: Categories.environment,
-    description: '',
+    description: `Help save one of our planet's crucial resources`,
     imageUrl:
       'https://images.unsplash.com/photo-1505059543657-d11072be4590?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
     tags: ['Environment', 'Disaster Relief', 'Sustainability'],

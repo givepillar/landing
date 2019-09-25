@@ -8,6 +8,9 @@ const env = {
     ? 'http://dev.oscarnewman.me:4000/graphql'
     : 'http://localhost:4000/graphql',
   BASE_URL: prod ? 'https://pillar.gives' : 'http://localhost:3000',
+  STRIPE_KEY: prod
+    ? 'pk_live_3jLMLDZZo9MhvOMvWl6U7tnJ'
+    : 'pk_test_Aa9HCt6t96ix37gxvpeqOKYL',
 }
 
 module.exports = withCSS({

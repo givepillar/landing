@@ -10,6 +10,7 @@ import NonprofitCard from '../../../app/components/NonprofitCard'
 import { PrimaryButton } from '../../../app/components/ui/Button'
 import { useQuery } from 'react-apollo'
 import gql from 'graphql-tag'
+import Give from './give'
 
 const BundleTag = ({ children, slug = '' }) => (
   <a

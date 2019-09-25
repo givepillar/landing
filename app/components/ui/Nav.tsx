@@ -92,13 +92,13 @@ const GET_AUTH_STATE = gql`
 `
 
 const Nav: React.SFC = () => {
-  const { data, loading, error } = useQuery(GET_AUTH_STATE)
+  // const { data, loading, error } = useQuery(GET_AUTH_STATE)
 
-  if (loading) return <div>Loading...</div>
-  if (error) return <div>error</div>
+  // if (loading) return <div>Loading...</div>
+  // if (error) return <div>error</div>
 
-  const { viewer } = data
-  const loggedIn = !!viewer
+  // const { viewer } = data
+  // const loggedIn = !!viewer
 
   return (
     <div>
@@ -115,25 +115,23 @@ const Nav: React.SFC = () => {
               </Link>
             </section>
             <section className="mx-24 flex-1 hidden md:block">
-              <SearchBar />
+              {/* <SearchBar /> */}
             </section>
             <section className="-mx-3 mr-2 flex items-center">
-              <NavLink to="/home">Home</NavLink>
-              <NavLink to="/explore">Explore</NavLink>
+              {/* <NavLink to="/home">Home</NavLink> */}
+              {/* <NavLink to="/explore">Explore</NavLink> */}
               {/* <NavLink to="/tax">Tax Forms</NavLink> */}
 
-              {!loggedIn && (
-                <Link href="/quiz/overview">
-                  <a>
-                    <PrimaryButton size="sm" className="inline-flex ml-2">
-                      Get Started
-                    </PrimaryButton>
-                  </a>
-                </Link>
-              )}
+              <Link href="/quiz/overview">
+                <a>
+                  <PrimaryButton size="sm" className="inline-flex ml-2">
+                    Get Started
+                  </PrimaryButton>
+                </a>
+              </Link>
 
               <div className="ml-2">
-                {loggedIn && (
+                {/* {loggedIn && (
                   <Link href="/settings">
                     <a className="flex items-center">
                       <div className="bg-gray-100 h-8 w-8 flex items-center justify-center rounded-full">
@@ -141,7 +139,7 @@ const Nav: React.SFC = () => {
                       </div>
                     </a>
                   </Link>
-                )}
+                )} */}
               </div>
 
               {/* <NavLink className="font-semibold ml-2" to="/">
