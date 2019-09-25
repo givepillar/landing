@@ -26,6 +26,7 @@
     "https-proxy-agent": "^2.2.2",
     "isomorphic-unfetch": "^3.0.0",
     "next": "^9.0.0",
+    "next-ga": "^2.3.4",
     "nprogress": "^0.2.0",
     "react": "^16.8.6",
     "react-apollo": "^3.0.0",

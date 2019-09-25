@@ -7,6 +7,7 @@ import { ApolloProvider } from 'react-apollo'
 import withApolloClient from '../app/lib/withApollo'
 import '../app/styles/index.css'
 import '../app/styles/nprogress.css'
+import withGA from 'next-ga'
 
 export interface ApolloProps {
   apolloClient: any
@@ -90,4 +91,4 @@ class Base extends App<ApolloProps> {
   }
 }
 
-export default withApolloClient(Base)
+export default withGA('UA-148813695-1', Router)(withApolloClient(Base))
