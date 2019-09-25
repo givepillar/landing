@@ -11,6 +11,7 @@ import { bundles } from '../../../app/mock/data'
 import { Bundle } from '../../../app/types'
 import { ToggleCheck } from '../../quiz/overview'
 import { PrimaryButton } from '../../../app/components/ui/Button'
+import { Container } from 'next/app'
 
 const tiers = [
   {
@@ -222,14 +223,18 @@ class Give extends Component<GiveProps> {
 
     return (
       <Layout title="Support">
-        <div className="flex flex-wrap ">
-          <div className="lg:w-3/4 w-full lg:pr-16 order-3 lg:order-1">
-            <CheckoutFormWrapper bundle={bundle} />
+        <Container>
+          <div>
+            <div className="flex flex-wrap">
+              <div className="lg:w-3/4 w-full lg:pr-16 order-3 lg:order-1">
+                <CheckoutFormWrapper bundle={bundle} />
+              </div>
+              <div className="lg:w-1/4 w-full lg:order-2 mb-16 lg:mb-0">
+                <BundleCard bundle={bundle} />
+              </div>
+            </div>
           </div>
-          <div className="lg:w-1/4 w-full lg:order-2 mb-16 lg:mb-0">
-            <BundleCard bundle={bundle} />
-          </div>
-        </div>
+        </Container>
       </Layout>
     )
   }

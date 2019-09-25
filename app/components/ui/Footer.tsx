@@ -15,7 +15,7 @@ const FooterLink: React.SFC<LinkProps> = ({ children, href = '/' }) => (
 )
 
 const Footer = () => (
-  <footer className="bg-white bg-gray-50">
+  <div className="bg-white bg-gray-50 w-full">
     <Container>
       <div className=" mx-auto border-t pt-8 pb-16 border-gray-100 text-gray-600 flex items-center justify-between">
         <div className="max-w-xs">
@@ -46,7 +46,6 @@ const Footer = () => (
         </div>
       </div>
     </Container>
-
     <style jsx>{`
       footer {
          {
@@ -57,7 +56,7 @@ const Footer = () => (
         background-position: center;
       }
     `}</style>
-  </footer>
+  </div>
 )
 
 export default Footer

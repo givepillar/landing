@@ -5,7 +5,7 @@ const prod = process.env.NODE_ENV === 'production'
 const env = {
   FB_CLIENT_ID: prod ? '1684207668378168' : '2173405042756743',
   API_URL: prod
-    ? 'http://dev.oscarnewman.me:4000/graphql'
+    ? 'https://pillar.saythanks.me/graphql'
     : 'http://localhost:4000/graphql',
   BASE_URL: prod ? 'https://pillar.gives' : 'http://localhost:3000',
   STRIPE_KEY: prod

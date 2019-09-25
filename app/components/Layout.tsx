@@ -17,16 +17,15 @@ const Layout: React.FC<LayoutProps> = ({
   padContent = true,
 }) => (
   <Base title={title}>
-    <div className="flex-1 flex flex-col bg-gray-25">
-      <div className="">{nav && <Nav />}</div>
-      {padContent ? (
-        <Container className="flex-1 py-4">{children}</Container>
-      ) : (
-        <div className="flex-1">{children}</div>
-      )}
-      <div className="mt-24">
-        <Footer />
-      </div>
+    <div className="flex-1 flex-col bg-gray-25">
+      <main>
+        <div className="">{nav && <Nav />}</div>
+        {padContent ? (
+          <Container className="flex-1 py-4">{children}</Container>
+        ) : (
+          <div className="flex-1">{children}</div>
+        )}
+      </main>
     </div>
   </Base>
 )
