@@ -58,10 +58,10 @@ const Home = () => (
   <Layout nav={true} title="Pillar" padContent={false}>
     <Container className="">
       <div className="flex flex-wrap mt-10">
-        <section className="w-full lg:w-3/4 lg:pr-16">
+        <section className="w-full">
           <div className="item">
             <SectionTitle>In the Spotlight</SectionTitle>
-            <FeaturedBundle bundle={bundles.oceans} />
+            <FeaturedBundle bundle={bundles.climate} />
           </div>
           <div className="block lg:hidden item">
             <SectionTitle className="mb-2">Portfolio</SectionTitle>
@@ -75,7 +75,7 @@ const Home = () => (
           </div>
         </section>
 
-        <section className="w-full lg:w-1/4">
+        {/* <section className="w-full lg:w-1/4">
           <div className="hidden lg:block item">
             <SectionTitle className="mb-2">Portfolio</SectionTitle>
             <p className="mb-6 text-sm font-semibold text-gray-500">
@@ -96,7 +96,7 @@ const Home = () => (
               </Link>
             </div>
           </div>
-        </section>
+        </section> */}
       </div>
     </Container>
     <style jsx>{`

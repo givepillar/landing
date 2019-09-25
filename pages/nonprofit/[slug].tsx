@@ -22,13 +22,24 @@ const NonprofitPage = () => {
 
         <h1 className="text-3xl lg:text-5xl font-black">{np.name}</h1>
 
-        <p className="mt-12 text-lg leading-loose">{np.programs}</p>
+        <div
+          className="article mt-12 text-lg leading-loose"
+          dangerouslySetInnerHTML={{
+            __html: np.description ? np.description : np.shortDescription,
+          }}
+        ></div>
       </div>
 
       <style jsx>{`
         .image {
           background-image: url(${np.imageUrl});
           height: 300px;
+        }
+      `}</style>
+
+      <style jsx global>{`
+        .nonprofit-description p {
+          margin-bottom: 2em;
         }
       `}</style>
     </Layout>

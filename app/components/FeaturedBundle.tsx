@@ -23,18 +23,13 @@ const FeaturedBundle: React.SFC<FeaturedProps> = ({ bundle }) => (
 
         <div className="mt-3 flex items-baseline ">
           <p className="inline-block text-gray-400 text-sm font-semibold mr-4">
-            <i className="fas fa-building text-gray-200 mr-1" /> 11 Nonprofits
-          </p>
-          <p className="inline-block text-gray-400 text-sm font-semibold mr-2">
-            <i className="fas fa-hand-holding-usd text-gray-200 mr-1" /> $43,000
-            given
+            <i className="fas fa-building text-gray-200 mr-1" />{' '}
+            {bundle.nonprofits && bundle.nonprofits.length} Nonprofits
           </p>
           <CategoryTag category={bundle.primaryCategory} />
         </div>
         <p className="leading-relaxed my-5 text-gray-700">
-          {bundle.description} Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. A, recusandae esse ipsum nisi officia ipsa delectus
-          aut ipsam ad vel.
+          {bundle.description}
         </p>
         <PrimaryButton>Learn more</PrimaryButton>
       </div>

@@ -34,13 +34,14 @@ const BundleCard: React.SFC<BundleCardProps> = ({ bundle, small, large }) => (
           </div>
 
           <div className="mt-1">
-            <p className="inline-block text-gray-500 text-sm font-semibold mr-4">
-              <i className="fas fa-building text-gray-200 mr-1" /> 11 Nonprofits
+            <p className="inline-block text-gray-400 text-sm font-semibold mr-4">
+              <i className="fas fa-building text-gray-200 mr-1" />{' '}
+              {bundle.nonprofits.length} Nonprofits
             </p>
-            <p className="inline-block text-gray-500 text-sm font-semibold mr-2">
+            {/* <p className="inline-block text-gray-500 text-sm font-semibold mr-2">
               <i className="fas fa-hand-holding-usd text-gray-200 mr-1" />{' '}
               $43,000 given
-            </p>
+            </p> */}
           </div>
           {!small && (
             <p className="text-sm my-5 text-gray-700">{bundle.description}</p>

@@ -12,16 +12,16 @@ const SuggestionCarousel = () => (
     </p>
     <div className="flex -mx-8 -mb-8 flex-wrap">
       <div className="w-full md:w-1/2 px-8 my-4">
-        <BundleCard large bundle={bundles.oceans} />
+        <BundleCard large bundle={bundles.climate} />
       </div>
       <div className="w-full md:w-1/2 px-8 my-4">
-        <BundleCard large bundle={bundles.choice} />
+        <BundleCard large bundle={bundles.mental} />
       </div>
       <div className="w-full md:w-1/2 px-8 my-4">
-        <BundleCard large bundle={bundles.rare} />
+        <BundleCard large bundle={bundles.reproductive} />
       </div>
       <div className="w-full md:w-1/2 px-8 my-4">
-        <BundleCard large bundle={bundles.oceans} />
+        <BundleCard large bundle={bundles.amazon} />
       </div>
     </div>
   </section>

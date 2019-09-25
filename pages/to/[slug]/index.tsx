@@ -12,16 +12,14 @@ import { useQuery } from 'react-apollo'
 import gql from 'graphql-tag'
 
 const BundleTag = ({ children, slug = '' }) => (
-  <Link href={`/tag/${slug}`}>
-    <a
-      className={
-        'bg-white shadow-lg text-gray-700 my-2 mx-4 rounded-full px-6 py-1 text-sm' +
-        ' hover:bg-gray-25'
-      }
-    >
-      {children}
-    </a>
-  </Link>
+  <a
+    className={
+      'bg-white shadow-lg text-gray-700 my-2 mx-4 rounded-full px-6 py-1 text-sm' +
+      ' hover:bg-gray-25'
+    }
+  >
+    {children}
+  </a>
 )
 
 const GET_BUNDLE = gql`
@@ -78,9 +76,6 @@ const BundlePage = () => {
           <div className="flex items-baseline mb-2">
             <p className="text-xl uppercase tracking-wide text-gray-800 font-semibold mr-4 ">
               <span className="flex-1 w-full">{bundle.name}</span>
-              <span className="text-gray-400 ml-3">
-                • 100 Donors • $2,500 raised
-              </span>
             </p>
           </div>
           <h1 className="text-3xl lg:text-5xl font-black">
@@ -89,26 +84,22 @@ const BundlePage = () => {
             </Highlight>
           </h1>
 
-          <p className="mt-12 text-lg leading-loose">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta
-            alias repudiandae aut qui, reiciendis quisquam consequuntur
-            necessitatibus. Delectus tempore illum ipsam quidem porro voluptas
-            explicabo, cupiditate atque inventore repellat sunt, dolore
-            consectetur magni similique? Culpa cum odio consequuntur ut rerum
-            harum dolor, provident laboriosam dolores commodi illo, odit quas
-            qui.
-          </p>
+          <div
+            className="mt-12 article text-lg leading-loose"
+            dangerouslySetInnerHTML={{
+              __html: bundle.longDescription
+                ? bundle.longDescription
+                : bundle.description,
+            }}
+          ></div>
 
           <h2 className="text-2xl mt-12 mb-6 font-medium">
             What this fund does
           </h2>
           <div className="flex flex-wrap -mx-4">
-            <BundleTag>Coral Reef Restoration</BundleTag>
-            <BundleTag>De-Acidification</BundleTag>
-            <BundleTag>Sustainable Fishing</BundleTag>
-            <BundleTag>Climate Change</BundleTag>
-            <BundleTag>Environment</BundleTag>
-            <BundleTag>Renewable Energy</BundleTag>
+            {bundle.tags.map(tag => (
+              <BundleTag key={tag}>{tag}</BundleTag>
+            ))}
           </div>
 
           <section>
@@ -119,23 +110,26 @@ const BundlePage = () => {
 
             <div className="flex flex-wrap -m-6 my-8">
               {bundle.nonprofits &&
-                bundle.nonprofits.map(np => (
-                  <div key={np.slug} className="p-6 sm:w-1/2 w-full">
-                    <NonprofitCard nonprofit={np} />
+                bundle.nonprofits.map(member => (
+                  <div
+                    key={member.nonprofit.slug}
+                    className="p-6 sm:w-1/2 w-full"
+                  >
+                    <NonprofitCard nonprofit={member.nonprofit} />
                     <p
                       className={
                         'mt-4 text-sm text-gray-600 px-4 py-2  ' +
                         'bg-gray-100 rounded'
                       }
                     >
-                      <strong>Why?</strong> They are strong and sexy
+                      <strong>Why?</strong> {member.why}
                     </p>
                   </div>
                 ))}
             </div>
           </section>
 
-          <h2 className="text-2xl mt-12 mb-8 font-medium">Who made this?</h2>
+          {/* <h2 className="text-2xl mt-12 mb-8 font-medium">Who made this?</h2>
           <div className="flex items-center">
             <div className="mr-10">
               <div
@@ -156,8 +150,21 @@ const BundlePage = () => {
                 <i className="fas fa-arrow-right ml-2"></i>
               </a>
             </div>
-          </div>
+          </div> */}
+          <section>
+            <h2 className="text-2xl mt-12 mb-6 font-medium">Why trust us?</h2>
+            <p className="text-lg leading-loose">
+              At Pillar we want to make sure your funds go to the right
+              organizations. We work to vet and select the best nonprofits. To
+              do so we verify that each organization is in good financial,
+              operating and legal standing, with an active 501(c)3 status with
+              IRS. We then look into each nonprofits programs to confirm that
+              they demonstrate tangible results and impact within the issues
+              they choose to address.
+            </p>
+          </section>
         </div>
+
         <div className="max-w-sm w-full lg:pl-16">
           <div className="sticky">
             <DonationBox bundle={bundle} />

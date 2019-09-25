@@ -15,21 +15,27 @@ export interface Category {
     dark: string
   }
 }
+
+export interface BundleMember {
+  nonprofit: Nonprofit
+  why: string
+}
 export interface Bundle {
   name: string
   longTitle: string
   description: string
+  longDescription?: string
   imageUrl?: string
   primaryCategory: Category
   slug: string
-  nonprofits?: Nonprofit[]
+  tags: string[]
+  nonprofits: BundleMember[]
 }
 
 export interface Nonprofit {
   name: string
-  programs?: string
-  charityNavigator?: number
-  programExpense?: number
+  description?: string
+  shortDescription: string
   slug: string
   imageUrl?: string
   logoUrl?: string

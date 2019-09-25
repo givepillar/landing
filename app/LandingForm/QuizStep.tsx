@@ -2,10 +2,9 @@ import cn from 'classnames'
 import React, { useEffect, useState } from 'react'
 import BundleCard from '../../app/components/BundleCard'
 import Layout from '../../app/components/Layout'
-import Highlight from '../../app/components/ui/Highlight'
-import { Categories, bundles } from '../../app/mock/data'
-import TextInput from '../../app/components/ui/form/TextInput'
 import SignupForm from '../../app/components/SignupForm'
+import Highlight from '../../app/components/ui/Highlight'
+import { bundles, Categories } from '../../app/mock/data'
 
 const Section = ({ children }) => (
   <section className="mb-24 flex flex-col items-center">{children}</section>
@@ -182,7 +181,7 @@ const BudgetPicker = () => {
   )
 }
 
-const Overview = () => {
+const QuizStep = ({ value, onChange, next, back }) => {
   const [cats, setCategories] = useState([])
 
   const update = (cat, value) => {
@@ -198,7 +197,7 @@ const Overview = () => {
   }, [cats])
 
   return (
-    <Layout>
+    <div>
       <Section>
         <SectionHeader>
           <Kicker>Step 1</Kicker>
@@ -225,7 +224,6 @@ const Overview = () => {
         <TertiaryButton>Load More Categories</TertiaryButton>
       </div> */}
       </Section>
-
       <Section>
         <SectionHeader>
           <Kicker>Step 2</Kicker>
@@ -237,7 +235,6 @@ const Overview = () => {
           <BudgetPicker />
         </div>
       </Section>
-
       <Section>
         <SectionHeader>
           <Kicker>Step 3</Kicker>
@@ -250,23 +247,18 @@ const Overview = () => {
         </SectionHeader>
 
         <div className="flex rounded w-full max-w-3xl">
-          <div className="w-1/2 py-4 px-10  pointer-events-none flex flex-col items-center">
+          <div className=" py-4 px-10  pointer-events-none flex flex-col items-center">
             <div className="mb-6 w-full">
-              <BundleCard bundle={bundles.climate} small />
+              <BundleCard bundle={bundles.climate} />
             </div>
             <div className="mb-8 w-full">
-              <BundleCard bundle={bundles.climate} small />
+              <BundleCard bundle={bundles.climate} />
             </div>
-            <div className="text-gray-600">&hellip; and 3 more</div>
-          </div>
-
-          <div className="w-1/2">
-            <SignupForm />
           </div>
         </div>
       </Section>
-    </Layout>
+    </div>
   )
 }
 
-export default Overview
+export default QuizStep

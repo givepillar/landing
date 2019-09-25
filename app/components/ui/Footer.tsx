@@ -8,7 +8,7 @@ interface LinkProps {
 }
 const FooterLink: React.SFC<LinkProps> = ({ children, href = '/' }) => (
   <Link href={href}>
-    <a className="no-underline text-blue-800 font-medium text-sm ml-4">
+    <a className="no-underline text-gray-800 font-medium text-sm ml-4">
       {children}
     </a>
   </Link>

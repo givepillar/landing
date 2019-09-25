@@ -23,7 +23,9 @@ const NonprofitCard: React.SFC<NPCardProps> = ({ nonprofit }) => (
             {/* <CategoryTag category={bundle.primaryCategory} /> */}
           </div>
 
-          <p className="text-sm my-5 text-gray-700">{nonprofit.programs}</p>
+          {/* <p className="text-sm my-5 text-gray-700"> */}
+          {/* {nonprofit.shortDescription} */}
+          {/* </p> */}
         </div>
         <style jsx>{`
           .image {
