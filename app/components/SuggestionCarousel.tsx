@@ -20,9 +20,9 @@ const SuggestionCarousel = () => (
       <div className="w-full md:w-1/2 px-8 my-4">
         <BundleCard large bundle={bundles.reproductive} />
       </div>
-      <div className="w-full md:w-1/2 px-8 my-4">
+      {/* <div className="w-full md:w-1/2 px-8 my-4">
         <BundleCard large bundle={bundles.amazon} />
-      </div>
+      </div> */}
     </div>
   </section>
 )

@@ -12,39 +12,33 @@ interface BundleCardProps {
 
 const BundleCard: React.SFC<BundleCardProps> = ({ bundle, small, large }) => (
   <Link href="/to/[slug]" as={`/to/${bundle.slug}`}>
-    <a className="block bg-white rounded shadow-float">
+    <a className="block ">
       <div>
         {!small && (
           <div
             className={
-              'image rounded-t bg-cover bg-center  ' + (large ? 'h-32' : 'h-20')
+              'image -m-2 relative z-10 rounded-lg shadow-lg bg-cover bg-center  ' +
+              (large ? 'h-32' : 'h-20')
             }
           />
         )}
-        <div className="px-3 py-3 bg h-full mt-1">
+        <div className="bg-white rounded-lg shadow-lg relative z-0 px-3 pb-3 pt-6 bg h-full mt-1">
           <div className="flex items-center">
             <div className="flex-1">
-              <p className="inline-block font-bold mr-6">
-                <Highlight color={bundle.primaryCategory.colors.light}>
-                  {bundle.name}
-                </Highlight>
+              <p className="inline-block text-2xl text-gray-700 font-bold mr-6">
+                {bundle.name}
               </p>
             </div>
-            <CategoryTag category={bundle.primaryCategory} />
-          </div>
-
-          <div className="mt-1">
             <p className="inline-block text-gray-400 text-sm font-semibold mr-4">
-              <i className="fas fa-building text-gray-200 mr-1" />{' '}
+              <i className="fas fa-stream text-gray-200 mr-1" />{' '}
               {bundle.nonprofits.length} Nonprofits
             </p>
-            {/* <p className="inline-block text-gray-500 text-sm font-semibold mr-2">
-              <i className="fas fa-hand-holding-usd text-gray-200 mr-1" />{' '}
-              $43,000 given
-            </p> */}
           </div>
+
           {!small && (
-            <p className="text-sm my-5 text-gray-700">{bundle.description}</p>
+            <p className="text leading-loose mb-5 mt-3 text-gray-600">
+              {bundle.description}
+            </p>
           )}
         </div>
         <style jsx>{`

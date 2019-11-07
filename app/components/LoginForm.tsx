@@ -3,7 +3,6 @@ import gql from 'graphql-tag'
 import Link from 'next/link'
 import React, { useState } from 'react'
 import { signIn } from '../lib/auth'
-import { FBSigninButton } from './FBSigninButton'
 import PrimaryButton from './ui/Button'
 import TextInput from './ui/form/TextInput'
 

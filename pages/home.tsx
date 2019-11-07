@@ -55,55 +55,10 @@ const PortfolioSection = () => (
 )
 
 const Home = () => (
-  <Layout nav={true} title="Pillar" padContent={false}>
+  <Layout nav={true} title="Pillar | Portfolio" padContent={false}>
     <Container className="">
-      <div className="flex flex-wrap mt-10">
-        <section className="w-full">
-          <div className="item">
-            <SectionTitle>In the Spotlight</SectionTitle>
-            <FeaturedBundle bundle={bundles.climate} />
-          </div>
-          {/* <div className="block lg:hidden item">
-            <SectionTitle className="mb-2">Portfolio</SectionTitle>
-            <p className="mb-6 text-sm font-semibold text-gray-500">
-              Will charge on August 1, 2019
-            </p>
-            <PortfolioSection />
-          </div> */}
-          <div className="item">
-            <SuggestionCarousel />
-          </div>
-        </section>
-
-        {/* <section className="w-full lg:w-1/4">
-          <div className="hidden lg:block item">
-            <SectionTitle className="mb-2">Portfolio</SectionTitle>
-            <p className="mb-6 text-sm font-semibold text-gray-500">
-              Will charge on August 1, 2019
-            </p>
-            <PortfolioSection />
-          </div>
-          <div className="item flex flex-col">
-            <SectionTitle className="mb-2">Activity</SectionTitle>
-            <p className="mb-6 text-gray-600">
-              All of your donations giving activity will show up here.
-            </p>
-            <div className="max-w-sm">
-              <Link href="/explore">
-                <a>
-                  <SecondaryButton>Explore Causes and Bundles</SecondaryButton>
-                </a>
-              </Link>
-            </div>
-          </div>
-        </section> */}
-      </div>
+      <Portfolio items={portfolio}></Portfolio>
     </Container>
-    <style jsx>{`
-      .item {
-        @apply mb-24;
-      }
-    `}</style>
   </Layout>
 )
 

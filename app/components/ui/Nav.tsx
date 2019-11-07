@@ -1,4 +1,3 @@
-import { useApolloClient, useQuery } from '@apollo/react-hooks'
 // and the styles
 import '@reach/menu-button/styles.css'
 import classnames from 'classnames'
@@ -8,6 +7,8 @@ import React, { useState } from 'react'
 import { PrimaryButton } from './Button'
 import Container from './Container'
 import Logo from './Logo'
+import { useQuery } from 'react-apollo'
+import Dropdown from '../Dropdown'
 
 interface LinkProps {
   to?: string
@@ -24,7 +25,7 @@ const NavLink: React.SFC<LinkProps> = ({
   <Link href={to}>
     <a
       className={classnames(
-        'no-underline text-sm font-medium text-blue-800',
+        'no-underline text-sm font-medium text-gray-800',
         { 'text-gray-800': active },
         className
       )}
@@ -34,71 +35,22 @@ const NavLink: React.SFC<LinkProps> = ({
   </Link>
 )
 
-const Row: React.SFC = ({ children }) => (
-  <a
-    href="#"
-    className="block no-underline text-gray-900 w-full px-4 py-2 hover:bg-gray-50"
-  >
-    {children}
-  </a>
-)
-
-const SearchBar: React.SFC = () => {
-  const [showResults, setShowResults] = useState(true)
-  const [query, setQuery] = useState('')
-
-  return (
-    <div className="relative w-full">
-      <label className="flex-1 bg-white flex items-baseline h-full py-3 cursor-text shadow-float px-4 rounded">
-        <i className="fas fa-search text-gray-300 mr-3" />
-        <input
-          type="text"
-          value={query}
-          onChange={e => setQuery(e.target.value)}
-          className="focus:outline-none w-full"
-          placeholder="Search charities, causes, and impacts"
-        />
-      </label>
-      {query.length > 0 && (
-        <div className="absolute bg-white w-full mt-4 border border-gray-100 rounded shadow-2xl z-10">
-          <Row>
-            <p className="text-xs uppercase tracking-wide text-gray-500">
-              Category
-            </p>
-            <p className="text-sm">Environment &amp; Climate Change</p>
-          </Row>
-          <Row>
-            <div>
-              <img
-                src="https://scontent-dfw5-1.xx.fbcdn.net/v/t1.0-9/14639674_10154228560249545_812798512151679547_n.png?_nc_cat=106&_nc_oc=AQkZH0bafySC4x-CY35KUIW82WWZ3EL-0XM38uSKUhIYLfLyoXP7u97oJGlTXULl1GY&_nc_ht=scontent-dfw5-1.xx&oh=21e206eba711dd1d465c832ca0ae5cad&oe=5D8C33F5"
-                alt=""
-                className="block w-10 rounded-full shadow"
-              />
-            </div>
-          </Row>
-        </div>
-      )}
-    </div>
-  )
-}
-
 const GET_AUTH_STATE = gql`
   query getAuthState {
     viewer {
       id
       firstName
+      lastName
+      email
     }
   }
 `
 
 const Nav: React.SFC = () => {
-  // const { data, loading, error } = useQuery(GET_AUTH_STATE)
+  const { data, loading, error } = useQuery(GET_AUTH_STATE)
 
-  // if (loading) return <div>Loading...</div>
-  // if (error) return <div>error</div>
-
-  // const { viewer } = data
-  // const loggedIn = !!viewer
+  const loggedIn = data && !!data.viewer
+  const showPrivate = !error && !loading && loggedIn
 
   return (
     <div>
@@ -106,45 +58,30 @@ const Nav: React.SFC = () => {
         <div className="bar h-2 block w-full" />
 
         <Container>
-          <div className="flex flex-col items-center sm:flex-row justify-between sm:items-center py-8">
+          <div
+            className={
+              'flex flex-col items-center' +
+              ' sm:flex-row justify-between sm:items-center py-8'
+            }
+          >
             <section className="mb-6 sm:mb-0 ">
-              <Link href="/home">
+              <Link href="/">
                 <a>
                   <Logo />
                 </a>
               </Link>
             </section>
-            <section className="mx-24 flex-1 hidden md:block">
-              {/* <SearchBar /> */}
-            </section>
+            <section className="mx-24 flex-1 hidden md:block"></section>
             <section className="flex items-center">
-              {/* <NavLink to="/home">Home</NavLink> */}
-              {/* <NavLink to="/explore">Explore</NavLink> */}
-              {/* <NavLink to="/tax">Tax Forms</NavLink> */}
-
-              <Link href="/quiz/overview">
-                <a>
-                  <PrimaryButton size="sm" className="inline-flex ml-2">
-                    Explore
-                  </PrimaryButton>
-                </a>
-              </Link>
-
-              <div className="ml-2">
-                {/* {loggedIn && (
-                  <Link href="/settings">
-                    <a className="flex items-center">
-                      <div className="bg-gray-100 h-8 w-8 flex items-center justify-center rounded-full">
-                        <i className="fas fa-user text-xs" />
-                      </div>
-                    </a>
-                  </Link>
-                )} */}
-              </div>
-
-              {/* <NavLink className="font-semibold ml-2" to="/">
-            Oscar
-          </NavLink> */}
+              {showPrivate ? (
+                <>
+                  <NavLink to="/">Home</NavLink>
+                  <NavLink to="/home">Portfolio</NavLink>
+                  <Dropdown user={data.viewer} darkText></Dropdown>
+                </>
+              ) : (
+                <PrimaryButton>Sign up</PrimaryButton>
+              )}
             </section>
           </div>
         </Container>

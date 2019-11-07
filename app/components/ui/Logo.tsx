@@ -6,9 +6,15 @@ export const LogoLight = () => (
   </p>
 )
 
+export const LogoDark = () => (
+  <p className="font-display text-xl md:text-2xl text-gray-900 font-normal">
+    Pillar
+  </p>
+)
+
 const Logo = () => (
   <img
-    className="block w-32 max-w-full shadow-xl rounded"
+    className="block w-24 max-w-full shadow-xl rounded"
     style={
       {
         // height: '72px',

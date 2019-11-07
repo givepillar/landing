@@ -24,21 +24,15 @@ const Row: React.FC<RowProps> = ({ item, shaded = false }) => (
       )}
     >
       <div className="flex-1">
-        {/* <div className="flex items-center mb-1">
-          <p className="text-xs text-gray-500 font-bold uppercase tracking-wide mr-4">
-            Bundle
-          </p>
-          <CategoryTag category={item.recipient.primaryCategory} />
-        </div> */}
-        <p className="font-bold">
-          <Highlight color={item.recipient.primaryCategory.colors.light}>
-            {item.recipient.name}
-          </Highlight>
-        </p>
-        <p className="text-gray-600">{item.recipient.primaryCategory.name}</p>
-        {/* <p className="text-gray-400 text-sm font-semibold mt-2">
-          <i className="fas fa-building text-gray-200 mr-1" /> 11 Nonprofits
-        </p> */}
+        <p className="font-extrabold text-xl">{item.recipient.name}</p>
+        <div className="text-blue-600 mt-1">
+          <button className="font-medium mr-4">
+            <i className="fas fa-edit mr-2 text-blue-300"></i>Edit Amount
+          </button>
+          <button className="font-medium">
+            <i className="fas fa-trash mr-2 text-blue-300"></i>Remove
+          </button>
+        </div>
       </div>
       <div className="flex items-start justify-end">
         <i
@@ -46,7 +40,8 @@ const Row: React.FC<RowProps> = ({ item, shaded = false }) => (
           style={{ marginTop: '8px' }}
         />
         <p className="text-xl font-bold m-0 p-0 text-gray-700">
-          {currency(item.amount)}
+          {currency(item.amount)}{' '}
+          <span className="uppercase text-base text-gray-400"> /month</span>
         </p>
       </div>
     </a>
@@ -55,11 +50,18 @@ const Row: React.FC<RowProps> = ({ item, shaded = false }) => (
 
 const Portfolio: React.FC<PortfolioProps> = ({ items }) => {
   return (
-    <Card className="block w-full  border-gray-100">
-      {items.map((d, i) => (
-        <Row shaded={i % 2 == 0} key={d.recipient.name} item={d} />
-      ))}
-    </Card>
+    <div>
+      <h1 className="text-2xl font-sans font-extrabold mb-1">Your Portfolio</h1>
+      <p className="text-lg text-gray-700 leading-normal mb-4 max-w-lg">
+        These are the bundles you are giving to monthly. All donations are
+        charged at the first of every month.
+      </p>
+      <Card className="block w-full border-gray-100">
+        {items.map((d, i) => (
+          <Row shaded={i % 2 == 0} key={d.recipient.name} item={d} />
+        ))}
+      </Card>
+    </div>
   )
 }
 

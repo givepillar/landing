@@ -39,6 +39,23 @@ const custom = {
   //   '800': '#243B53',
   //   '900': '#102A43',
   // },
+  // gray: {
+  //   ...theme.colors.gray,
+  //   // '25': '#FAF9F7',
+  //   // '50': '#FAF9F7',
+  //   // '100': '#E8E6E1',
+  //   '25': '#FAF9F7',
+  //   '50': '#FAF9F7',
+  //   '100': '#E8E6E1',
+  //   // '200': '#BCCCDC',
+  //   // '300': '#9FB3C8',
+  //   // '400': '#829AB1',
+  //   // '500': '#627D98',
+  //   // '600': '#486581',
+  //   // '700': '#334E68',
+  //   // '800': '#243B53',
+  //   // '900': '#102A43',
+  // },
 }
 
 module.exports = {
@@ -73,7 +90,7 @@ module.exports = {
   },
   variants: {
     shadow: ['active'],
-    backgroundColor: ['hover'],
+    backgroundColor: ['hover', 'focus'],
   },
   plugins: [require('@tailwindcss/custom-forms')],
 }

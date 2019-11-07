@@ -29,7 +29,7 @@ class Base extends App<ApolloProps> {
     const { Component, pageProps, apolloClient } = this.props
 
     return (
-      <div className="flex-1 flex font-sans text-gray-900 antialiased">
+      <div className="flex-1 flex font-sans text-gray-900 bg-gray-50 antialiased">
         <Container>
           <ApolloHooksProvider client={apolloClient}>
             <ApolloProvider client={apolloClient}>

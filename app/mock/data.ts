@@ -35,9 +35,11 @@ export const Categories = {
   },
   disaster: {
     name: 'Disaster Relief',
-    dark: '#4E4A4A',
-    medium: '#FEB2B2',
-    light: '#FFDADA',
+    colors: {
+      dark: '#4E4A4A',
+      medium: '#FEB2B2',
+      light: '#FFDADA',
+    },
   },
 }
 
@@ -398,36 +400,41 @@ export const bundles = {
     <li>Providing services where they are needed.</li>
     </ul>`,
   },
-  amazon: {
-    name: 'Amazon Rainforest Fires',
-    slug: 'amazon-fires',
-    longTitle: `A sixth of Earth's oxygen supply is at risk`,
-    primaryCategory: Categories.environment,
-    description: `Help save one of our planet's crucial resources`,
-    imageUrl:
-      'https://pillar-static-assets.s3.amazonaws.com/photo-1505059543657-d11072be4590.jpeg',
-    tags: ['Environment', 'Disaster Relief', 'Sustainability'],
-    nonprofits: [
-      {
-        nonprofit: nonprofits.amazonwatch,
-        why: `Work in back indigenous communities within the Amazon`,
-      },
-      {
-        nonprofit: nonprofits.rainforest,
-        why: `Their work in training to farmers in methods that generate higher yields on existing cropland, reducing the pressure to encroach on nearby forests`,
-      },
-      {
-        nonprofit: nonprofits.amazoncons,
-        why: `Work on implementing sustainable forestry practices, and lobbying government`,
-      },
-    ],
-    longDescription: `<p>We all sat through classes learning about the environment, in which our school teachers explained the role the Amazon plays producing Oxygen and taking in Carbon Dioxide.</p>
-    <p>At the moment the inverse is happening.</p>
-    <p>The Amazon rainforest, which stretches over 2.2 million-square miles, 4 times the size of Alaska, is being devastated by forest fires. The impact on our environment is disheartening, as ecosystems which 1/4 of the species on earth call home are literally burning, and producing emissions that will affect the rest of our environment.</p>
-    <p>All while endangering the local indigenous populations, and also the urban areas around the Amazon, which have been literally shrouded in smoke over the past month.</p>
-    <p>To solve this problem nonprofits have been doubling down on their preservation efforts.</p>
-    <p>Work is being done to strengthen the environmental agencies to prevent man made damages to the environment, while working in parallel with landowners and farmers to implement sustainable forestry practices. All the while working to address the fires, and supporting the local communities.</p>`,
-  },
+  // amazon: {
+  //   name: 'Amazon Rainforest Fires',
+  //   slug: 'amazon-fires',
+  //   longTitle: `A sixth of Earth's oxygen supply is at risk`,
+  //   primaryCategory: Categories.environment,
+  //   description: `Help save one of our planet's crucial resources`,
+  //   imageUrl:
+  //     'https://pillar-static-assets.s3.amazonaws.com/photo-1505059543657-d11072be4590.jpeg',
+  //   tags: ['Environment', 'Disaster Relief', 'Sustainability'],
+  //   nonprofits: [
+  //     {
+  //       nonprofit: nonprofits.amazonwatch,
+  //       why: `Work in back indigenous communities within the Amazon`,
+  //     },
+  //     {
+  //       nonprofit: nonprofits.rainforest,
+  //       why: `Their work in training to farmers in methods that generate higher yields on existing cropland, reducing the pressure to encroach on nearby forests`,
+  //     },
+  //     {
+  //       nonprofit: nonprofits.amazoncons,
+  //       why: `Work on implementing sustainable forestry practices, and lobbying government`,
+  //     },
+  //   ],
+  //   longDescription: `<p>We all sat through classes learning about the environment, in which our school teachers explained the role the Amazon plays producing Oxygen and taking in Carbon Dioxide.</p>
+  //   <p>At the moment the inverse is happening.</p>
+  //   <p>The Amazon rainforest, which stretches over 2.2 million-square miles, 4 times the size of Alaska, is being devastated by forest fires. The impact on our environment is disheartening, as ecosystems which 1/4 of the species on earth call home are literally burning, and producing emissions that will affect the rest of our environment.</p>
+  //   <p>All while endangering the local indigenous populations, and also the urban areas around the Amazon, which have been literally shrouded in smoke over the past month.</p>
+  //   <p>To solve this problem nonprofits have been doubling down on their preservation efforts.</p>
+  //   <p>Work is being done to strengthen the environmental agencies to prevent man made damages to the environment, while working in parallel with landowners and farmers to implement sustainable forestry practices. All the while working to address the fires, and supporting the local communities.</p>`,
+  // },
 }
 
-export const portfolio: PortfolioItem[] = []
+export const portfolio: PortfolioItem[] = [
+  {
+    recipient: bundles.climate,
+    amount: 2000,
+  },
+]
