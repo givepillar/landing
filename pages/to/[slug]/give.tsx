@@ -1,17 +1,18 @@
 import gql from 'graphql-tag'
-import { NextPageContext } from 'next'
+import { NextPageContext, NextPage } from 'next'
 import React, { Component, useState } from 'react'
-import { useMutation } from 'react-apollo'
+import { useMutation, useQuery } from 'react-apollo'
 import BundleCard from '../../../app/components/BundleCard'
 import DeferredStripe from '../../../app/components/DeferredStripe'
 import Layout from '../../../app/components/Layout'
 import TextInput from '../../../app/components/ui/form/TextInput'
 import { currency, unCurrency } from '../../../app/lib/currency'
 import { bundles } from '../../../app/mock/data'
-import { Bundle } from '../../../app/types'
+import { Bundle, User } from '../../../app/types'
 import { ToggleCheck } from '../../quiz/overview'
 import { PrimaryButton } from '../../../app/components/ui/Button'
 import { Container } from 'next/app'
+import checkLoggedIn from '../../../app/lib/checkLoggedIn'
 
 const tiers = [
   {
@@ -38,7 +39,7 @@ interface TierProps {
 const Tier: React.SFC<TierProps> = ({ tier, children, onClick }) => (
   <button
     className={
-      'tier block text-left bg-white shadow rounded p-4 ' +
+      'tier block text-left border-2 border-gray-50 rounded p-4 ' +
       'w-full mb-4 focus:outline-none'
     }
     onClick={onClick}
@@ -47,16 +48,21 @@ const Tier: React.SFC<TierProps> = ({ tier, children, onClick }) => (
       <div className="w-8 mr-4 flex justify-center">
         <ToggleCheck toggled={false} />
       </div>
-      <div className="flex-1">
-        <h2 className="font-bold text-lg">{tier.name} </h2>
-        {tier.suggested && (
-          <p className="text-red-600 text-sm font-medium">
-            Most people choose this
-          </p>
-        )}
-      </div>
-      <div className="text-green-600 font-bold">
-        <span className="text-lg">${currency(tier.price)}</span>
+      <div className="flex flex-1 flex-col w-full sm:flex-row sm:justify-between sm:items-center">
+        <div className="flex-1">
+          <h2 className="font-bold text-lg">{tier.name} </h2>
+          {tier.suggested && (
+            <p className="text-purple-600 text-sm font-medium">
+              Most people choose this tier
+            </p>
+          )}
+        </div>
+        <div className="text-purple-500 font-bold">
+          <span className="text-lg">${currency(tier.price)}</span>
+          <span className="text-base uppercase text-gray-400 tracking-wide ml-2">
+            /month
+          </span>
+        </div>
       </div>
     </div>
 
@@ -73,7 +79,6 @@ const Tier: React.SFC<TierProps> = ({ tier, children, onClick }) => (
 
       .tier:hover {
         transform: scale(1.01);
-        @apply shadow-lg;
       }
     `}</style>
   </button>
@@ -91,7 +96,7 @@ const PayWhatYouWant = ({ next }) => {
   return (
     <Tier
       tier={{
-        name: 'Pay what you want',
+        name: 'Give what you can',
         description: 'Give what you can',
         price: amount,
       }}
@@ -106,7 +111,7 @@ const PayWhatYouWant = ({ next }) => {
         />
 
         <PrimaryButton className="ml-2" onClick={() => next(amount)}>
-          Give <i className="fas fa-arrow-right"></i>
+          Give <i className="fas fa-arrow-right ml-2 text-blue-200"></i>
         </PrimaryButton>
       </div>
     </Tier>
@@ -122,13 +127,16 @@ const PriceSelectionStep = ({ next }) => (
   </div>
 )
 
-const CheckoutStep = ({ back, amount, bundle }) => {
+const CheckoutStep = ({ back, amount, bundle, user }) => {
   return (
-    <div className="p-6 bg-white rounded shadow-md ">
-      <button onClick={back} className="mb-4">
-        <i className="fas fa-chevron-left"></i> Select Amount
+    <div className="p-6 rounded border-2 border-gray-50 ">
+      <button onClick={back} className="mb-4 text-gray-600 font-medium">
+        <i className="fas fa-chevron-left text-gray-300 mr-2"></i> Select Amount
       </button>
-      <div className="font-bold text-xl mb-6">Give ${currency(amount)} </div>
+      <div className="font-extrabold text-3xl mb-6">
+        Give <span className="text-purple-600">${currency(amount)}</span> per
+        month to {bundle.name}
+      </div>
       <DeferredStripe amount={amount} bundle={bundle}></DeferredStripe>
     </div>
   )
@@ -156,7 +164,7 @@ const GET_HOSTED_DONATION_ID = gql`
   }
 `
 
-const CheckoutFormWrapper = ({ bundle }) => {
+const CheckoutFormWrapper = ({ bundle, user }) => {
   const [step, setStep] = useState(0)
   const [amount, setAmount] = useState(0)
 
@@ -197,9 +205,19 @@ const CheckoutFormWrapper = ({ bundle }) => {
   return (
     <>
       {step == 0 ? (
-        <PriceSelectionStep next={triggerCheckout} />
+        <PriceSelectionStep
+          next={amt => {
+            setAmount(amt)
+            setStep(1)
+          }}
+        />
       ) : (
-        <CheckoutStep bundle={bundle} back={() => setStep(0)} amount={amount} />
+        <CheckoutStep
+          user={user}
+          bundle={bundle}
+          back={() => setStep(0)}
+          amount={amount}
+        />
       )}
     </>
   )
@@ -208,36 +226,50 @@ const CheckoutFormWrapper = ({ bundle }) => {
 interface GiveProps extends NextPageContext {
   bundle: Bundle
   amount?: number
+  user: User
 }
 
-class Give extends Component<GiveProps> {
-  static async getInitialProps(ctx: NextPageContext) {
-    const { slug } = ctx.query
-    const bundle: Bundle = Object.values(bundles).find(b => b.slug === slug)
-
-    return { bundle }
+const GET_USER = gql`
+  query getUser {
+    viewer {
+      id
+      firstName
+      lastName
+      email
+    }
   }
-
-  render() {
-    const { bundle } = this.props
-
-    return (
-      <Layout title="Support">
-        <Container>
-          <div>
-            <div className="flex flex-wrap">
-              <div className="lg:w-3/4 w-full lg:pr-16 order-3 lg:order-1">
-                <CheckoutFormWrapper bundle={bundle} />
-              </div>
-              <div className="lg:w-1/4 w-full lg:order-2 mb-16 lg:mb-0">
-                <BundleCard bundle={bundle} />
-              </div>
+`
+const Give: NextPage<GiveProps> = ({ bundle, user }) => {
+  return (
+    <Layout title="Support">
+      <Container>
+        <div>
+          <div className="flex flex-wrap">
+            <div className="lg:w-3/4 w-full lg:pr-16 order-3 lg:order-1">
+              <CheckoutFormWrapper user={user} bundle={bundle} />
+            </div>
+            <div className="lg:w-1/4 w-full lg:order-2 mb-16 lg:mb-0">
+              <BundleCard bundle={bundle} small />
             </div>
           </div>
-        </Container>
-      </Layout>
-    )
-  }
+        </div>
+      </Container>
+    </Layout>
+  )
 }
+Give.getInitialProps = async (ctx: NextPageContext) => {
+  const { slug } = ctx.query
+  const bundle: Bundle = Object.values(bundles).find(b => b.slug === slug)
 
+  // @ts-ignore
+  const { user } = await checkLoggedIn(ctx.apolloClient)
+  const props: GiveProps = {
+    bundle,
+    amount: 0,
+    user,
+    query: ctx.query,
+    pathname: ctx.pathname,
+  }
+  return props
+}
 export default Give

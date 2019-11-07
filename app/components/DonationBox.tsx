@@ -74,7 +74,7 @@ import { currency } from '../lib/currency';
               className="w-full mt-6 font-bold text-white"
               size="lg"
             >
-              <i className="fas fa-plus mr-2 text-red-200" />
+              <i className="fas fa-plus mr-2 text-purple-200" />
               Support this cause
             </PrimaryButton>
           </Link>

@@ -7,7 +7,7 @@ import Logo from '../app/components/ui/Logo'
 const signup = () => {
   return (
     <Base title="Sign Up | Pillar">
-      <div className="flex w-full h-full bg-gray-50 items-start pt-12 justify-center">
+      <div className="flex w-full h-full items-start  justify-center">
         <div className="p-12 flex flex-col items-center w-full">
           <Link href="/">
             <a className="mb-12">

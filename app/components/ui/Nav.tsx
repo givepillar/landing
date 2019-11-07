@@ -4,7 +4,7 @@ import classnames from 'classnames'
 import gql from 'graphql-tag'
 import Link from 'next/link'
 import React, { useState } from 'react'
-import { PrimaryButton } from './Button'
+import { PrimaryButton, SecondaryButton } from './Button'
 import Container from './Container'
 import Logo from './Logo'
 import { useQuery } from 'react-apollo'
@@ -55,7 +55,7 @@ const Nav: React.SFC = () => {
   return (
     <div>
       <nav className="block w-full">
-        <div className="bar h-2 block w-full" />
+        <div className="bar h-1 block w-full" />
 
         <Container>
           <div
@@ -80,7 +80,12 @@ const Nav: React.SFC = () => {
                   <Dropdown user={data.viewer} darkText></Dropdown>
                 </>
               ) : (
-                <PrimaryButton>Sign up</PrimaryButton>
+                <>
+                  <NavLink to="/login">Log in</NavLink>
+                  <SecondaryButton className="ml-2">
+                    Get Started
+                  </SecondaryButton>
+                </>
               )}
             </section>
           </div>

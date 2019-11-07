@@ -7,7 +7,10 @@ import { bundles } from '../../../app/mock/data'
 import { Bundle } from '../../../app/types'
 import Link from 'next/link'
 import NonprofitCard from '../../../app/components/NonprofitCard'
-import { PrimaryButton } from '../../../app/components/ui/Button'
+import {
+  PrimaryButton,
+  SecondaryButton,
+} from '../../../app/components/ui/Button'
 import { useQuery } from 'react-apollo'
 import gql from 'graphql-tag'
 import Give from './give'
@@ -15,8 +18,8 @@ import Give from './give'
 const BundleTag = ({ children, slug = '' }) => (
   <a
     className={
-      'bg-white shadow-lg text-gray-700 my-2 mx-4 rounded-full px-6 py-1 text-sm' +
-      ' hover:bg-gray-25'
+      'bg-purple-50 text-purple-900 my-2 mx-2 rounded-full px-6 py-1 text-sm font-medium' +
+      ' hover:bg-purple-100'
     }
   >
     {children}
@@ -71,7 +74,7 @@ const BundlePage = () => {
   return (
     <Layout title={bundle.name + ' | Pillar'}>
       <div className="flex justify-center flex-col lg:flex-row relative">
-        <div className="max-w-full lg:max-w-3xl mb-12 lg:mb-0">
+        <div className="flex-1 max-w-2xl mb-12 lg:mb-0">
           <div className="image bg-cover bg-center rounded shadow-xl mb-12" />
 
           <div>
@@ -83,19 +86,21 @@ const BundlePage = () => {
               {bundle.nonprofits.length} Nonprofits
             </span>
           </div>
-          <div className="flex items-baseline mb-10">
+          <div className="flex items-center justify-between mb-10">
             <p className="text-4xl tracking-wide text-gray-900 font-extrabold mr-4 ">
               <span className="flex-1 w-full">{bundle.name}</span>
             </p>
+            <Link href="/to/[slug]/give" as={`/to/${bundle.slug}/give`}>
+              <PrimaryButton>
+                <i className="fas fa-plus text-purple-200 mr-2"></i>
+                Add to my Portfolio
+              </PrimaryButton>
+            </Link>
           </div>
-          <h1 className="text-2xl lg:text-3xl">
-            <Highlight color={bundle.primaryCategory.colors.light}>
-              {bundle.longTitle}
-            </Highlight>
-          </h1>
+          <p className="text-xl font-bold">{bundle.longTitle}</p>
 
           <div
-            className="mt-12 article text-lg leading-loose"
+            className="mt-6 article text-lg leading-loose"
             dangerouslySetInnerHTML={{
               __html: bundle.longDescription
                 ? bundle.longDescription
@@ -104,16 +109,16 @@ const BundlePage = () => {
           ></div>
 
           <h2 className="text-2xl mt-12 mb-6 font-medium">
-            What this fund does
+            What this bundle does
           </h2>
-          <div className="flex flex-wrap -mx-4">
+          <div className="flex flex-wrap -mx-2">
             {bundle.tags.map(tag => (
               <BundleTag key={tag}>{tag}</BundleTag>
             ))}
           </div>
 
           <section>
-            <h2 className="text-2xl mt-12 mb-6 font-medium">The nonprofits</h2>
+            <h2 className="text-2xl mt-12 mb-2 font-medium">The nonprofits</h2>
             <p className="text-lg leading-loose">
               All donations are split equally among these nonprofits.
             </p>
@@ -175,11 +180,11 @@ const BundlePage = () => {
           </section>
         </div>
 
-        <div className="max-w-sm w-full lg:pl-16">
+        {/* <div className="w-64 flex-none lg:pl-16">
           <div className="sticky">
             <DonationBox bundle={bundle} />
           </div>
-        </div>
+        </div> */}
         {/* <div
           className={
             'fixed bg-gray-25 bottom-0 flex justify-center ' +

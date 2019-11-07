@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { CardElement, injectStripe } from 'react-stripe-elements'
 import { PrimaryButton } from './ui/Button'
 import TextInput from './ui/form/TextInput'
+import { User } from '../types'
 
 interface StripeProps {
   stripe: any
@@ -32,24 +33,12 @@ class StripeCheckout extends Component<StripeProps> {
   render() {
     return (
       <div className="checkout">
-        <TextInput
-          title="Name"
-          className="mb-6"
-          onChange={name => this.setState({ name })}
-        ></TextInput>
-        <TextInput
-          title="Email"
-          type="email"
-          className="mb-6"
-          onChange={email => this.setState({ email })}
-        ></TextInput>
-
         <div className="form-input py-3 mt-4 mb-12">
           <CardElement />
         </div>
 
         <PrimaryButton onClick={this.submit} className="w-full">
-          Give
+          Start Giving
         </PrimaryButton>
       </div>
     )

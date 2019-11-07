@@ -58,10 +58,10 @@ class Base extends App<ApolloProps> {
             .article a {
               background: linear-gradient(
                 0deg,
-                theme(colors.teal.100) 50%,
+                theme(colors.purple.50) 50%,
                 transparent 50%
               );
-              @apply text-teal-900;
+              @apply text-purple-900;
             }
 
             .article ul {

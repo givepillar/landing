@@ -267,7 +267,7 @@ export const nonprofits = {
 export const bundles = {
   climate: {
     name: 'Climate Change',
-    longTitle: 'Global Warming affects everybody',
+    longTitle: 'Global Warming affects everybody.',
     description:
       'The world’s scientists confirmed in the 2018 IPCC report that at the current rate,' +
       ' the world could cross 1.5˚C hotter as soon as 2030. That’s within our lifespan.' +
@@ -302,23 +302,8 @@ export const bundles = {
       'Grassroots Movements and Organization',
       'Environmental Protection',
     ],
-    longDescription: `<p><strong>The world&rsquo;s scientists confirmed in the 2018 IPCC report that at the current rate, the world could cross 1.5˚C hotter as soon as 2030. That&rsquo;s within our lifespan.</strong></p>
-    <p>1.5˚C might not sound like a big increase in temperature, but it&rsquo;s the difference between life and death for thousands of people.</p>
-    <p>Earth has always had natural cycles of warming and cooling, but not like we&rsquo;re seeing now.&nbsp;<strong>The top five hottest years on record are 2014, 2015, 2016, 2017, and 2018. We can experience this right now, and it will only become more obvious.</strong></p>
-    <p>Over 1 million people living near coasts have been forced from their homes due to rising seas and stronger storms, and millions more are expected to flee in the coming years.</p>
-    <p>Climate Change is set to increase the risk of food shocks and malnutrition all around the world.</p>
-    <p><strong>The basic facts of climate crisis are grim.</strong></p>
-    <p><em>Though here is the good news:</em></p>
-    <blockquote>
-    <p>We Know exactly what we have to do</p>
-    </blockquote>
-    <ul>
-    <li>Keep fossil fuels in the ground, and increase the share of solar, wind and hydro energy dramatically in that time. Coal is on the decline, and through the renewable energy sector we've created thousands of jobs.</li>
-    <li>Improve energy efficiency.</li>
-    <li>Continue to advocate for changes in policy to reflect our goals</li>
-    </ul>
-    <p>And all of this is doable</p>
-    <p>We&rsquo;re not alone &mdash; the worldwide movement to stop the climate crisis is growing stronger every day. Join it.</p>`,
+    longDescription: `<p>The world&rsquo;s scientists confirmed in the 2018 IPCC report that at the current rate, the world become 1.5˚C warmer as soon as 2030. That&rsquo;s within our lifespan. Everyday we are already noticing theses effects, and they will only become more evident. The top five hottest years on record are 2014, 2015, 2016, 2017, and 2018.</p>
+    <p>Let's stop this.</p>`,
   },
   mental: {
     name: 'Mental Health',

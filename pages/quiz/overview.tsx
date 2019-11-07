@@ -29,7 +29,7 @@ const SectionHeader = ({ children }) => (
 export const ToggleCheck = ({ toggled }) => (
   <div
     className={cn(
-      'w-6 h-6 border border-gray-100 rounded-full',
+      'w-6 h-6 border-2 border-gray-100 rounded-full',
       'flex items-center justify-center text-xs text-white',
       {
         'bg-green-400 border-none': toggled,

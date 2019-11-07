@@ -16,6 +16,13 @@ export interface Category {
   }
 }
 
+export interface User {
+  id: string
+  firstName: string
+  lastName: string
+  email: string
+}
+
 export interface BundleMember {
   nonprofit: Nonprofit
   why: string

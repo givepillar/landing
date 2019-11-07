@@ -11,6 +11,7 @@ const env = {
   STRIPE_KEY: prod
     ? 'pk_live_3jLMLDZZo9MhvOMvWl6U7tnJ'
     : 'pk_test_Aa9HCt6t96ix37gxvpeqOKYL',
+  STRIPE_SUBSCRIPTION_KEY: prod ? 'prod_G8LdvEXPsPaSOR' : 'prod_G8Le5TM1WkZNMk',
 }
 
 module.exports = withCSS({

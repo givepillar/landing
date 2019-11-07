@@ -7,7 +7,7 @@ import Logo from '../app/components/ui/Logo'
 const login = () => {
   return (
     <Base title="Login | Pillar">
-      <div className="flex w-full h-full bg-gray-50 items-start pt-12 justify-center">
+      <div className="flex w-full h-full items-start pt-12 justify-center">
         {/* <div className="w-1/2 flex-1 bg" /> */}
         <div className="p-12 flex flex-col items-center w-full">
           <Link href="/">

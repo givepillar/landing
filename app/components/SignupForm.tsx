@@ -18,6 +18,8 @@ const SIGNUP_USER = gql`
 `
 
 const SignupForm = () => {
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -27,8 +29,23 @@ const SignupForm = () => {
   })
 
   return (
-    <form>
-      <div className="max-w-sm w-full block">
+    <form className="max-w-sm w-full block">
+      <h2 className="text-2xl font-extrabold mb-2">Sign up</h2>
+      <div className="w-full block">
+        <TextInput
+          title="First Name"
+          value={firstName}
+          onChange={setFirstName}
+          type="text"
+          className="mb-6"
+        />
+        <TextInput
+          title="Last Name"
+          value={lastName}
+          onChange={setLastName}
+          type="text"
+          className="mb-6"
+        />
         <TextInput
           title="Email"
           value={email}
