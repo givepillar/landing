@@ -437,4 +437,8 @@ export const portfolio: PortfolioItem[] = [
     recipient: bundles.climate,
     amount: 2000,
   },
+  {
+    recipient: bundles.mental,
+    amount: 1000,
+  },
 ]

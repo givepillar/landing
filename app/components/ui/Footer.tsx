@@ -15,7 +15,7 @@ const FooterLink: React.SFC<LinkProps> = ({ children, href = '/' }) => (
 )
 
 const Footer = () => (
-  <div className="bg-white bg-gray-50 w-full">
+  <div className="bg-white w-full">
     <Container>
       <div className=" mx-auto border-t pt-8 pb-16 border-gray-100 text-gray-600 flex items-center justify-between">
         <div className="max-w-xs">

@@ -11,7 +11,7 @@ interface CardProps {
 const Card: React.SFC<StyleProps> = ({ children, className }) => (
   <div
     className={classnames(
-      'rounded-lg bg-white overflow-hidden shadow-md',
+      'rounded-lg bg-white overflow-hidden border-2 border-gray-100',
       className
     )}
   >

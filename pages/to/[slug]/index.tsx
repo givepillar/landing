@@ -74,12 +74,21 @@ const BundlePage = () => {
         <div className="max-w-full lg:max-w-3xl mb-12 lg:mb-0">
           <div className="image bg-cover bg-center rounded shadow-xl mb-12" />
 
-          <div className="flex items-baseline mb-2">
-            <p className="text-xl uppercase tracking-wide text-gray-800 font-semibold mr-4 ">
+          <div>
+            <span className="uppercase text-gray-500 text-base font-bold tracking-wide">
+              Bundle
+            </span>
+            <span className="ml-6 text-gray-400 font-bold">
+              <i className="fas fa-stream text-gray-300 mr-2"></i>{' '}
+              {bundle.nonprofits.length} Nonprofits
+            </span>
+          </div>
+          <div className="flex items-baseline mb-10">
+            <p className="text-4xl tracking-wide text-gray-900 font-extrabold mr-4 ">
               <span className="flex-1 w-full">{bundle.name}</span>
             </p>
           </div>
-          <h1 className="text-3xl lg:text-5xl font-black">
+          <h1 className="text-2xl lg:text-3xl">
             <Highlight color={bundle.primaryCategory.colors.light}>
               {bundle.longTitle}
             </Highlight>

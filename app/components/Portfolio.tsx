@@ -56,7 +56,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ items }) => {
         These are the bundles you are giving to monthly. All donations are
         charged at the first of every month.
       </p>
-      <Card className="block w-full border-gray-100">
+      <Card className="block w-full">
         {items.map((d, i) => (
           <Row shaded={i % 2 == 0} key={d.recipient.name} item={d} />
         ))}
